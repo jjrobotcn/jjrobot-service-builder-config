@@ -2,11 +2,11 @@ version: "3"
 
 services:
   network:
-    image: jjrobot/network
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/network:1.3.0-rc1
     container_name: service-network
     restart: always
     environment:
-      - module=wifi360
+      - module=openwrt
       - device=10.10.10.1:80
       - p=andy4wifi
     volumes:
