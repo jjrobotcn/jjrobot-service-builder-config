@@ -1,0 +1,14 @@
+version: "1"
+resolvers:
+  - file:
+      src: https://s.jj-robot.com/install/jjrobotctl
+      dst: /usr/local/bin/jjrobotctl
+      x_perm: true
+  - file:
+      src: https://s.jj-robot.com/install/99-jjrobot-vol-serial.rules
+      dst: /etc/udev/rules.d/99-jjrobot-vol-serial.rules
+  - image:
+      image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/jjrobotd:2.3.0-rc1
+      rename: jjrobot/jjrobotd
+  - release:
+      version: v1.0.0-rc1
