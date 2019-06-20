@@ -11,4 +11,4 @@ resolvers:
       image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/jjrobotd:2.3.0-rc1
       rename: jjrobot/jjrobotd
   - release:
-      version: v1.0.0-rc1
+      version: v1.0.0-rc2
