@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  lights:
+    image: jjrobot/lights
+    container_name: service-lights
+    restart: always
+    environment:
+      - mouth_length=0
+      - ears_length=0
+      - hands_length=62
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  gserial-head:
+    image: jjrobot/grpc_serial
+    container_name: gserial-head
+    restart: always
+    devices:
+      - /dev/ttyHead:/dev/ttyHead
+    ports:
+      - 127.0.0.1:28053:8000
+    command: ["-device", "/dev/ttyHead", "-protocol", "jjrobot", "-log", "info"]
+  fileman-el:
+    image: jjrobot/fileman
+    container_name: fileman-el
+    restart: always
+    volumes:
+      - /media/jjrobot-le-media:/storage
+    environment:
+      - ROOT=/storage

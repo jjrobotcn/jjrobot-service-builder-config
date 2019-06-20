@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  id_card:
+    image: jjrobot/id_card
+    container_name: service-id-card
+    restart: always
+    privileged: true
+    environment:
+      - module=zkidm30
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

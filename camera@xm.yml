@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  camera:
+    image: jjrobot/camera
+    container_name: service-camera
+    restart: always
+    environment:
+      - module=xm
+      - dvr=0
+      - dvr_store_days=7
+      - host=10.10.10.10
+      - user=admin
+      - pwd=
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/dvr:/dvr

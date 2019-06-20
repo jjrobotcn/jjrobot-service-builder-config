@@ -1,0 +1,138 @@
+{
+    "jjrobotd": {
+      "name": "Daemon",
+      "label": "Daemon管理服务"
+    },
+    "bks-fs": {
+      "name": "bks-fs",
+      "label": "无线导航文件服务"
+    },
+    "gserial-sensor": {
+      "name": "serial-sensor",
+      "label": "传感器串口服务"
+    },
+    "gserial-motion": {
+      "name": "serial-motion",
+      "label": "运动模块串口服务"
+    },
+    "gserial-head": {
+      "name": "serial-head",
+      "label": "灯光表情模块串口服务"
+    },
+    "gserial-power": {
+      "name": "serial-power",
+      "label": "电源模块串口服务"
+    },
+    "gserial-chassis": {
+      "name": "serial-chassis",
+      "label": "导航模块串口服务"
+    },
+    "service-motion": {
+      "name": "motion",
+      "label": "运动模块"
+    },
+    "service-nav": {
+      "name": "nav",
+      "label": "导航模块"
+    },
+    "robot-redis": {
+      "name": "redis",
+      "label": "REDIS"
+    },
+    "robot-db": {
+      "name": "db",
+      "label": "DATABASE"
+    },
+    "robot-auth": {
+      "name": "auth",
+      "label": "AUTH"
+    },
+    "robot-frpc": {
+      "name": "frpc",
+      "label": "远程支持服务"
+    },
+    "robot-gateway": {
+      "name": "gateway",
+      "label": "网关服务"
+    },
+    "robot-gateway-envoy": {
+      "name": "gateway-envoy",
+      "label": "网关服务ENVOY"
+    },
+    "robot-ws-gateway": {
+      "name": "ws-gateway",
+      "label": "WEBSOCKET网关服务"
+    },
+    "service-id-card": {
+      "name": "id-card",
+      "label": "身份证模块"
+    },
+    "service-network": {
+      "name": "network",
+      "label": "网络模块"
+    },
+    "service-power": {
+      "name": "power",
+      "label": "电源模块"
+    },
+    "fileman-el": {
+      "name": "fileman-el",
+      "label": "表情灯光文件服务"
+    },
+    "service-expression": {
+      "name": "expression",
+      "label": "表情模块"
+    },
+    "service-lights": {
+      "name": "lights",
+      "label": "灯光模块"
+    },
+    "service-esc-pos": {
+      "name": "esc-pos",
+      "label": "小票打印模块"
+    },
+    "service-camera": {
+      "name": "camera",
+      "label": "监控模块"
+    },
+    "robot-webrtc-server": {
+      "name": "webrtc-server",
+      "label": "监控模块WEBRTC_SERVER"
+    },
+    "robot-kms": {
+      "name": "kms",
+      "label": "监控模块KMS_SERVER"
+    },
+    "robot-messaging": {
+      "name": "messaging",
+      "label": "消息模块"
+    },
+    "service-xcode-scanner": {
+      "name": "xcode-scanner",
+      "label": "扫码模块"
+    },
+    "robot-import-export": {
+      "name": "import-export",
+      "label": "导入导出模块"
+    },
+    "service-speech": {
+      "name": "speech",
+      "label": "语音模块"
+    },
+    "service-sensor": {
+      "name": "sensor",
+      "label": "传感器模块"
+    },
+    "face-recognition": {
+      "name": "face-server",
+      "label": "人脸识别模块"
+    },
+    "face-recognition-gateway": {
+      "name": "face-gateway",
+      "label": "人脸识别模块代理网关"
+    },
+    "management-pages": {
+      "name": "management-pages",
+      "label": "开发管理平台页面"
+    }
+  }

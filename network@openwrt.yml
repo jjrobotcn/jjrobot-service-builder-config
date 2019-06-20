@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  network:
+    image: jjrobot/network
+    container_name: service-network
+    restart: always
+    environment:
+      - module=wifi360
+      - device=10.10.10.1:80
+      - p=andy4wifi
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

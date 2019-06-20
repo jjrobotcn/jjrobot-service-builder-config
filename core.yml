@@ -1,0 +1,95 @@
+version: "3"
+
+services:
+  db:
+    image: mongo:4.0.5
+    container_name: robot-db
+    restart: always
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=robotjj
+    - MONGO_INITDB_ROOT_PASSWORD=ROBOTjjROBOT
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /var/lib/jjrobot/jdb_mgo:/data/db
+  redis:
+    image: redis:5.0.3
+    container_name: robot-redis
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  frpc:
+    image: jjrobot/frpc
+    container_name: robot-frpc
+    restart: always
+    network_mode: host
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  auth:
+    image: jjrobot/auth
+    container_name: robot-auth
+    restart: always
+    environment:
+    - jwt_timeout_sec=604800
+    - PASSWORD=123456
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /var/lib/jjrobot/certs:/certs
+  gateway:
+    image: jjrobot/gateway
+    container_name: robot-gateway
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /var/lib/jjrobot/certs:/certs
+    ports:
+    - 80:80
+    - 443:443
+  gateway-envoy:
+    image: jjrobot/gateway_envoy
+    container_name: robot-gateway-envoy
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /var/lib/jjrobot/certs/fullchain.pem:/certs/crt.pem
+    - /var/lib/jjrobot/certs/privkey.pem:/certs/key.pem
+    ports:
+    - 8000:8000
+  ws_gateway:
+    image: jjrobot/ws_gateway
+    container_name: robot-ws-gateway
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  messaging:
+    image: jjrobot/messaging
+    container_name: robot-messaging
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  import-export:
+    image: jjrobot/import_export
+    container_name: robot-import-export
+    restart: always
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+  kms:
+    image: jjrobot/kms
+    container_name: robot-kms
+    restart: always
+    network_mode: host
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/dvr:/dvr
+    environment:
+      - KMS_TURN_URL=test:abc@119.23.254.113:3478
+  webrtc-server:
+    image: jjrobot/webrtc-server
+    container_name: robot-webrtc-server
+    restart: always
+    environment:
+      - KMS_WS_URI=ws://10.10.10.2:8888/kurento
+
+networks:
+  default:
+    external:
+      name: robotnet

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  power:
+    image: jjrobot/power
+    container_name: service-power
+    restart: always
+    environment:
+      - module=base
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  gserial-power:
+    image: jjrobot/grpc_serial
+    container_name: gserial-power
+    restart: always
+    devices:
+      - /dev/ttyPower:/dev/ttyPower
+    ports:
+      - 127.0.0.1:28054:8000
+    command: ["-device", "/dev/ttyPower", "-protocol", "jjrobot", "-log", "info"]

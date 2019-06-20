@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  expression:
+    image: jjrobot/expression
+    container_name: service-expression
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  gserial-head:
+    image: jjrobot/grpc_serial
+    container_name: gserial-head
+    restart: always
+    devices:
+      - /dev/ttyHead:/dev/ttyHead
+    ports:
+      - 127.0.0.1:28053:8000
+    command: ["-device", "/dev/ttyHead", "-protocol", "jjrobot", "-log", "info"]
+  fileman-el:
+    image: jjrobot/fileman
+    container_name: fileman-el
+    restart: always
+    volumes:
+      - /media/jjrobot-le-media:/storage
+    environment:
+      - ROOT=/storage

@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nav:
+    image: jjrobot/nav
+    container_name: service-nav
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - module=bks
+      - bks_controller_ip=10.10.10.2
+      - bks_controller_mac=b0:41:6f:00:01:2d
+      - bks_target_ip=10.10.10.2
+  bks-fs:
+    image: jjrobot/filesystem
+    container_name: bks-fs
+    restart: always
+    volumes:
+      - /home/boocax:/home/boocax
+    command: ["-path", "/home/boocax"]

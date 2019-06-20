@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  esc_pos:
+    image: jjrobot/esc_pos
+    container_name: service-esc-pos
+    restart: always
+    environment:
+      - module=sprt
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/jjep:/dev/jjep

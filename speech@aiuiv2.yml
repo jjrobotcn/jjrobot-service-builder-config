@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  speech:
+    image: jjrobot/speech
+    container_name: service-speech
+    restart: always
+    environment:
+      - module=aiuiv2
+      - wifi_ssid=
+      - wifi_pwd=
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttySpeech:/dev/ttyAiuiV2

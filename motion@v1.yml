@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  motion:
+    image: jjrobot/motion
+    container_name: service-motion
+    restart: always
+    environment:
+      - module=v1
+      - HEAD_X_AXIS_OFFSET=0
+      - HEAD_X_AXIS_LEFT=75
+      - HEAD_X_AXIS_CENTER=135
+      - HEAD_X_AXIS_RIGHT=195
+      - HEAD_Y_AXIS_OFFSET=0
+      - HEAD_Y_AXIS_TOP=120
+      - HEAD_Y_AXIS_MIDDLE=135
+      - HEAD_Y_AXIS_BOTTOM=150
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  gserial-motion:
+    image: jjrobot/grpc_serial
+    container_name: gserial-motion
+    restart: always
+    devices:
+      - /dev/ttyMotion:/dev/ttyMotion
+    ports:
+      - 127.0.0.1:28051:8000
+    command: ["-device", "/dev/ttyMotion", "-protocol", "jjrobot", "-log", "info"]
