@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    image: mongo:4.0.5
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/mongo:4.0.5
     container_name: robot-db
     restart: always
     environment:
@@ -12,20 +12,20 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/jdb_mgo:/data/db
   redis:
-    image: redis:5.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/redis:5.0.3
     container_name: robot-redis
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
   frpc:
-    image: jjrobot/frpc
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/frpc:1.1.0
     container_name: robot-frpc
     restart: always
     network_mode: host
     volumes:
     - /etc/localtime:/etc/localtime:ro
   auth:
-    image: jjrobot/auth
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.0
     container_name: robot-auth
     restart: always
     environment:
@@ -35,7 +35,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/gateway:2.6.3_dev
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.3
     container_name: robot-gateway
     restart: always
     volumes:
@@ -45,11 +45,11 @@ services:
     - 80:80
     - 443:443
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/management-pages:2.7.3_dev
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.3
     container_name: management-pages
     restart: always
   gateway-envoy:
-    image: jjrobot/gateway_envoy
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway_envoy:1.0.0
     container_name: robot-gateway-envoy
     restart: always
     volumes:
@@ -59,25 +59,25 @@ services:
     ports:
     - 8000:8000
   ws_gateway:
-    image: jjrobot/ws_gateway
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/ws_gateway:2.4.0
     container_name: robot-ws-gateway
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
   messaging:
-    image: jjrobot/messaging
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.3
     container_name: robot-messaging
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
   import-export:
-    image: jjrobot/import_export
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/import_export:1.2.0
     container_name: robot-import-export
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
   kms:
-    image: jjrobot/kms
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kms:latest
     container_name: robot-kms
     restart: always
     network_mode: host
@@ -87,7 +87,7 @@ services:
     environment:
       - KMS_TURN_URL=test:abc@119.23.254.113:3478
   webrtc-server:
-    image: jjrobot/webrtc-server
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.0
     container_name: robot-webrtc-server
     restart: always
     environment:

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   camera:
-    image: jjrobot/camera
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera:1.0.2
     container_name: service-camera
     restart: always
     environment:

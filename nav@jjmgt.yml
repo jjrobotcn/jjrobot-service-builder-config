@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nav:
-    image: jjrobot/nav
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.2.4
     container_name: service-nav
     restart: always
     volumes:
@@ -10,7 +10,7 @@ services:
     environment:
       - module=jjmgt
   gserial-chassis:
-    image: jjrobot/grpc_serial
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
     container_name: gserial-chassis
     restart: always
     devices:

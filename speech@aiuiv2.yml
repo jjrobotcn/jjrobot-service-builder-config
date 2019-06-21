@@ -2,7 +2,7 @@ version: "3"
 
 services:
   speech:
-    image: jjrobot/speech
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:2.1.5
     container_name: service-speech
     restart: always
     environment:

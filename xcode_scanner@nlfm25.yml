@@ -2,7 +2,7 @@ version: "3"
 
 services:
   xcode_scanner:
-    image: jjrobot/xcode_scanner
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.0
     container_name: service-xcode-scanner
     restart: always
     environment:

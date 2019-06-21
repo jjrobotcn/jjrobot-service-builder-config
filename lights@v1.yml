@@ -2,7 +2,7 @@ version: "3"
 
 services:
   lights:
-    image: jjrobot/lights
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.2.2
     container_name: service-lights
     restart: always
     environment:
@@ -12,7 +12,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-head:
-    image: jjrobot/grpc_serial
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
     container_name: gserial-head
     restart: always
     devices:
@@ -21,7 +21,7 @@ services:
       - 127.0.0.1:28053:8000
     command: ["-device", "/dev/ttyHead", "-protocol", "jjrobot", "-log", "info"]
   fileman-el:
-    image: jjrobot/fileman
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
     container_name: fileman-el
     restart: always
     volumes:

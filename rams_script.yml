@@ -8,7 +8,7 @@ resolvers:
       src: https://s.jj-robot.com/install/99-jjrobot-vol-serial.rules
       dst: /etc/udev/rules.d/99-jjrobot-vol-serial.rules
   - image:
-      image: registry.cn-shenzhen.aliyuncs.com/jjrobot2/jjrobotd:2.3.0-rc1
+      image: registry.cn-shenzhen.aliyuncs.com/jjrobot/jjrobotd:2.3.0-rc2
       rename: jjrobot/jjrobotd
   - release:
-      version: v1.0.0-rc2
+      version: v1.0.0-rc3

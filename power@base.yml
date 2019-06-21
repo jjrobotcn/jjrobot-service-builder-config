@@ -2,7 +2,7 @@ version: "3"
 
 services:
   power:
-    image: jjrobot/power
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/power:1.0.3
     container_name: service-power
     restart: always
     environment:
@@ -10,7 +10,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-power:
-    image: jjrobot/grpc_serial
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
     container_name: gserial-power
     restart: always
     devices:

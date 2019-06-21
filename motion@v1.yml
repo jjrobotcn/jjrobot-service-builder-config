@@ -2,7 +2,7 @@ version: "3"
 
 services:
   motion:
-    image: jjrobot/motion
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
     container_name: service-motion
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-motion:
-    image: jjrobot/grpc_serial
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
     container_name: gserial-motion
     restart: always
     devices:

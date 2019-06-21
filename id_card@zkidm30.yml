@@ -2,7 +2,7 @@ version: "3"
 
 services:
   id_card:
-    image: jjrobot/id_card
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/id_card:1.0.1
     container_name: service-id-card
     restart: always
     privileged: true

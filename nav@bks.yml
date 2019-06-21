@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nav:
-    image: jjrobot/nav
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.2.4
     container_name: service-nav
     restart: always
     volumes:
@@ -13,7 +13,7 @@ services:
       - bks_controller_mac=b0:41:6f:00:01:2d
       - bks_target_ip=10.10.10.2
   bks-fs:
-    image: jjrobot/filesystem
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/filesystem:1.0.0
     container_name: bks-fs
     restart: always
     volumes:
