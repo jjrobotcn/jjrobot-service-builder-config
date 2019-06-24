@@ -1,6 +1,6 @@
 {
     "jjrobotd": {
-      "name": "Daemon",
+      "name": "jjrobotd",
       "label": "Daemon管理服务"
     },
     "bks-fs": {
@@ -8,23 +8,23 @@
       "label": "无线导航文件服务"
     },
     "gserial-sensor": {
-      "name": "serial-sensor",
+      "name": "gserial-sensor",
       "label": "传感器串口服务"
     },
     "gserial-motion": {
-      "name": "serial-motion",
+      "name": "gserial-motion",
       "label": "运动模块串口服务"
     },
     "gserial-head": {
-      "name": "serial-head",
+      "name": "gserial-head",
       "label": "灯光表情模块串口服务"
     },
     "gserial-power": {
-      "name": "serial-power",
+      "name": "gserial-power",
       "label": "电源模块串口服务"
     },
     "gserial-chassis": {
-      "name": "serial-chassis",
+      "name": "gserial-chassis",
       "label": "导航模块串口服务"
     },
     "service-motion": {
