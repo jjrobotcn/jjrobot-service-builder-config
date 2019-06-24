@@ -53,3 +53,7 @@ services:
     module:
       default: xcode_scanner@nlfm25.yml
       nlfm25: xcode_scanner@nlfm25.yml
+  face:
+    module:
+      default: face@v1.yml
+      v1: face@v1.yml
