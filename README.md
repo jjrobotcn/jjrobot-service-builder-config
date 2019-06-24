@@ -1,7 +1,7 @@
 ### 相关文件描述
 - builder.yml： 服务配置版本解析配置
 - service_labels.json: 服务信息描述配置
-- install_script.yml: 定义安装脚本, Daemon中实现安装方法
+- requirements.yml: 定义更新依赖, 依赖方法处理由Daemon实现
 - nav@bks.yml: 导航模块@布科思无线导航版本配置
 - nav@jjmgt.yml: 导航模块@磁导航版本配置
 - nav@jjbase.yml: 导航模块@简易底盘版本配置
@@ -76,10 +76,10 @@ services:
 ...
 ```
 
-#### install_script.yml更新安装脚本
+#### requirements.yml更新安装依赖
 ```yaml
 version: "1"
-resolvers:
+requirements:
   - file:
       src: https://s.jj-robot.com/install/jjrobotctl
       dst: /usr/local/bin/jjrobotctl
@@ -90,10 +90,7 @@ resolvers:
   - image:
       image: registry.cn-shenzhen.aliyuncs.com/jjrobot/jjrobotd:2.3.0-rc2
       rename: jjrobot/jjrobotd
-  - release:
-      version: v1.0.0-rc3
 ```
-上述script中描述了4个resolver
+上述script中描述了3个依赖
 - file类型将由src下载内容至dst, 若x_perm==true将更新权限为0744，否则0644
 - image类型将更新一个服务镜像并更名为jjrobot/jjrobotd
-- release类型将获取[srv-builder](https://srvbuilder.jj-robot.com?sn=test)服务指定version的构建并将内容同步至Daemon本地执行更新

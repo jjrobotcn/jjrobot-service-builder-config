@@ -1,5 +1,5 @@
 version: "1"
-resolvers:
+requirements:
   - file:
       src: https://s.jj-robot.com/install/jjrobotctl
       dst: /usr/local/bin/jjrobotctl
@@ -10,5 +10,3 @@ resolvers:
   - image:
       image: registry.cn-shenzhen.aliyuncs.com/jjrobot/jjrobotd:2.3.0-rc2
       rename: jjrobot/jjrobotd
-  - release:
-      version: v1.0.0-rc3
