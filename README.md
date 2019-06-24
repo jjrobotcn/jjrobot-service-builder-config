@@ -1,7 +1,7 @@
 ### 相关文件描述
 - builder.yml： 服务配置版本解析配置
 - service_labels.json: 服务信息描述配置
-- rams_script.yml: RAMS后台服务资料管理类目中Script项内容
+- install_script.yml: 定义安装脚本, Daemon中实现安装方法
 - nav@bks.yml: 导航模块@布科思无线导航版本配置
 - nav@jjmgt.yml: 导航模块@磁导航版本配置
 - nav@jjbase.yml: 导航模块@简易底盘版本配置
@@ -75,3 +75,25 @@ services:
     }
 ...
 ```
+
+#### install_script.yml更新安装脚本
+```yaml
+version: "1"
+resolvers:
+  - file:
+      src: https://s.jj-robot.com/install/jjrobotctl
+      dst: /usr/local/bin/jjrobotctl
+      x_perm: true
+  - file:
+      src: https://s.jj-robot.com/install/99-jjrobot-vol-serial.rules
+      dst: /etc/udev/rules.d/99-jjrobot-vol-serial.rules
+  - image:
+      image: registry.cn-shenzhen.aliyuncs.com/jjrobot/jjrobotd:2.3.0-rc2
+      rename: jjrobot/jjrobotd
+  - release:
+      version: v1.0.0-rc3
+```
+上述script中描述了4个resolver
+- file类型将由src下载内容至dst, 若x_perm==true将更新权限为0744，否则0644
+- image类型将更新一个服务镜像并更名为jjrobot/jjrobotd
+- release类型将获取[srv-builder](https://srvbuilder.jj-robot.com?sn=test)服务指定version的构建并将内容同步至Daemon本地执行更新
