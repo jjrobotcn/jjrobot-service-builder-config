@@ -35,7 +35,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.4
     container_name: robot-gateway
     restart: always
     volumes:
@@ -45,7 +45,7 @@ services:
     - 80:80
     - 443:443
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.4
     container_name: management-pages
     restart: always
   gateway-envoy:
