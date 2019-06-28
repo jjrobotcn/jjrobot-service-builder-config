@@ -13,6 +13,8 @@ services:
       - TOLERANCE=0.5
     ports:
       - 10900:8000
+    volumes:
+      - /var/lib/jjrobot/face-sets:/face-sets
   face-recognition-gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition-gateway:0.0.1
     container_name: face-recognition-gateway
