@@ -2,7 +2,7 @@ version: "3"
 
 services:
   face-recognition:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.4
     container_name: face-recognition
     restart: always
     environment:
@@ -10,7 +10,7 @@ services:
       - DB_PORT=27017
       - DB_USER=robotjj
       - DB_PASS=ROBOTjjROBOT
-      - TOLERANCE=0.5
+      - TOLERANCE=0.45
     ports:
       - 10900:8000
     volumes:
