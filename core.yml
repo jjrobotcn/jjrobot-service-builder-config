@@ -87,7 +87,7 @@ services:
     environment:
       - KMS_TURN_URL=test:abc@119.23.254.113:3478
   webrtc-server:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.1
     container_name: robot-webrtc-server
     restart: always
     environment:
