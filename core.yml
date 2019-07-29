@@ -35,7 +35,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.5
     container_name: robot-gateway
     restart: always
     volumes:
@@ -45,7 +45,7 @@ services:
     - 80:80
     - 443:443
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.5
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7
     container_name: management-pages
     restart: always
   gateway-envoy:
@@ -87,7 +87,7 @@ services:
     environment:
       - KMS_TURN_URL=test:abc@119.23.254.113:3478
   webrtc-server:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.1
     container_name: robot-webrtc-server
     restart: always
     environment:

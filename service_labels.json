@@ -60,11 +60,11 @@
       "label": "网关服务ENVOY"
     },
     "robot-ws-gateway": {
-      "name": "ws-gateway",
+      "name": "ws_gateway",
       "label": "WEBSOCKET网关服务"
     },
     "service-id-card": {
-      "name": "id-card",
+      "name": "id_card",
       "label": "身份证模块"
     },
     "service-network": {
@@ -88,7 +88,7 @@
       "label": "灯光模块"
     },
     "service-esc-pos": {
-      "name": "esc-pos",
+      "name": "esc_pos",
       "label": "小票打印模块"
     },
     "service-camera": {
@@ -108,7 +108,7 @@
       "label": "消息模块"
     },
     "service-xcode-scanner": {
-      "name": "xcode-scanner",
+      "name": "xcode_scanner",
       "label": "扫码模块"
     },
     "robot-import-export": {
