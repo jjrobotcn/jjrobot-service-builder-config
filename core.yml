@@ -45,7 +45,7 @@ services:
     - 80:80
     - 443:443
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.5
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7
     container_name: management-pages
     restart: always
   gateway-envoy:
