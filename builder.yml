@@ -53,3 +53,6 @@ services:
     module:
       default: xcode_scanner@nlfm25.yml
       nlfm25: xcode_scanner@nlfm25.yml
+  customerservice:
+    module:
+      default: customerservice@v1.yml

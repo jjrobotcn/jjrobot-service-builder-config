@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  customerservice:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-customer-service:0.1.0-alpha2
+    container_name: customerservice
+    restart: always
+    devices:
+      - /dev/snd
+    environment:
+      - LOG_LEVEL=debug
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
