@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  handsmotion:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hands-motion:0.1.0-alpha1
+    container_name: handsmotion
+    restart: always
+    devices:
+      - /dev/ttyB84:/dev/ttyHandsMotion
+    environment:
+      LOG_LEVEL: debug
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

@@ -53,3 +53,6 @@ services:
     module:
       default: xcode_scanner@nlfm25.yml
       nlfm25: xcode_scanner@nlfm25.yml
+  handsmotion:
+    module:
+      default: handsmotion@v1.yml

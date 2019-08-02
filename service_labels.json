@@ -134,5 +134,9 @@
     "management-pages": {
       "name": "management-pages",
       "label": "开发管理平台页面"
+    },
+    "handsmotion": {
+      "name": "handsmotion",
+      "label": "手部运动模块"
     }
   }
