@@ -9,6 +9,13 @@ services:
       - mouth_length=0
       - ears_length=0
       - hands_length=62
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/lights
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/lightsService.LightsService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-head:

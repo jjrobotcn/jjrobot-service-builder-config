@@ -9,5 +9,10 @@ services:
       - module=nlfm25
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/xcScannerService.XCodeScannerService
     devices:
       - /dev/ttyXcodeScanner:/dev/ttyXcodeScanner

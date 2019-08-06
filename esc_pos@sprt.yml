@@ -7,6 +7,13 @@ services:
     restart: always
     environment:
       - module=sprt
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/esc_pos
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/escposService.EscPosService
     volumes:
       - /etc/localtime:/etc/localtime:ro
     devices:

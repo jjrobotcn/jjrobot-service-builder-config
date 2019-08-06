@@ -9,6 +9,13 @@ services:
       - module=aiuiv2
       - wifi_ssid=
       - wifi_pwd=
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/speech
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/speechService.SpeechService
     volumes:
       - /etc/localtime:/etc/localtime:ro
     devices:
