@@ -25,29 +25,62 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   auth:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.1
     container_name: robot-auth
     restart: always
     environment:
     - jwt_timeout_sec=604800
     - PASSWORD=123456
+    - HTTP_URI_VALID_PREFIXES: /api,/daemon/api
+    - HTTP_URI_VALID_IGNORED: /daemon/api/v1/info
+    labels:
+    - traefik.enable=true
+    - traefik.port=9000
+    - traefik.backend=auth
+    - traefik.frontend.rule=PathPrefix:/auth
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.6.5
+    image: traefik:1.7
     container_name: robot-gateway
     restart: always
     volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
+    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
+    - /var/lib/jjrobot/certs/public.pem:/certs/grpc.crt:ro
+    - /var/lib/jjrobot/certs/key.pem:/certs/grpc.key:ro
     - /etc/localtime:/etc/localtime:ro
-    - /var/lib/jjrobot/certs:/certs
     ports:
     - 80:80
     - 443:443
+    - 8000:8000
+    command: >
+      --defaultentrypoints=http,https,grpc
+      --entrypoints="Name:http Address::80 Auth.Forward.Address:http://auth:9000/auth"
+      --entrypoints="Name:https Address::443 TLS:/certs/cert.crt,/certs/cert.key Auth.Forward.Address:http://auth:9000/auth"
+      --entrypoints="Name:grpc Address::8000 TLS:/certs/grpc.crt,/certs/grpc.key Auth.Forward.Address:http://auth:9000/auth"
+      --docker
+      --docker.network=robotnet
+      --docker.exposedbydefault=false
+  daemonreverseproxy:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/daemon-reverse-proxy:1.0.0
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.backend=daemonreverseproxy
+      - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7
     container_name: management-pages
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.backend=management-pages
+      - traefik.frontend.rule=PathPrefix:/
   gateway-envoy:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway_envoy:1.0.0
     container_name: robot-gateway-envoy
@@ -62,6 +95,12 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/ws_gateway:2.4.0
     container_name: robot-ws-gateway
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=8000
+      - traefik.backend=ws_gateway
+      - traefik.v1.frontend.rule=PathPrefix:/service/ws;ReplacePath:/service/ws/v2
+      - traefik.v2.frontend.rule=PathPrefix:/service/ws/v2
     volumes:
     - /etc/localtime:/etc/localtime:ro
   messaging:
@@ -74,6 +113,11 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/import_export:1.2.0
     container_name: robot-import-export
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=8000
+      - traefik.backend=import-export
+      - traefik.frontend.rule=PathPrefix:/api/v2/import_export
     volumes:
     - /etc/localtime:/etc/localtime:ro
   kms:
@@ -92,6 +136,11 @@ services:
     restart: always
     environment:
       - KMS_WS_URI=ws://10.10.10.2:8888/kurento
+    labels:
+      - traefik.enable=true
+      - traefik.port=8000
+      - traefik.backend=webrtc-server
+      - traefik.frontend.rule=PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
 
 networks:
   default:

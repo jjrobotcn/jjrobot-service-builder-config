@@ -5,6 +5,11 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.2.1
     container_name: service-expression
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=9000
+      - traefik.backend=expression
+      - traefik.frontend.rule=PathPrefix:/api/v2/expression
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-head:

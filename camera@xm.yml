@@ -12,6 +12,11 @@ services:
       - host=10.10.10.10
       - user=admin
       - pwd=
+    labels:
+      - traefik.enable=true
+      - traefik.port=9000
+      - traefik.backend=camera
+      - traefik.frontend.rule=PathPrefix:/api/v2/camera
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/dvr:/dvr

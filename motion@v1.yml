@@ -15,6 +15,11 @@ services:
       - HEAD_Y_AXIS_TOP=120
       - HEAD_Y_AXIS_MIDDLE=135
       - HEAD_Y_AXIS_BOTTOM=150
+    labels:
+      - traefik.enable=true
+      - traefik.port=9000
+      - traefik.backend=motion
+      - traefik.frontend.rule=PathPrefix:/api/v2/motion
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-motion:

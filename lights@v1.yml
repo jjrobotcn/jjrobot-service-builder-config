@@ -9,6 +9,11 @@ services:
       - mouth_length=0
       - ears_length=0
       - hands_length=62
+    labels:
+      - traefik.enable=true
+      - traefik.port=9000
+      - traefik.backend=lights
+      - traefik.frontend.rule=PathPrefix:/api/v2/lights
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-head:
