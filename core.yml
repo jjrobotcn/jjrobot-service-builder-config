@@ -31,8 +31,8 @@ services:
     environment:
     - jwt_timeout_sec=604800
     - PASSWORD=123456
-    - HTTP_URI_VALID_PREFIXES: /api,/daemon/api
-    - HTTP_URI_VALID_IGNORED: /daemon/api/v1/info
+    - HTTP_URI_VALID_PREFIXES=/api,/daemon/api
+    - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info
     labels:
     - traefik.enable=true
     - traefik.port=9000
