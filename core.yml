@@ -81,16 +81,6 @@ services:
       - traefik.port=80
       - traefik.backend=management-pages
       - traefik.frontend.rule=PathPrefix:/
-  gateway-envoy:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway_envoy:1.0.0
-    container_name: robot-gateway-envoy
-    restart: always
-    volumes:
-    - /etc/localtime:/etc/localtime:ro
-    - /var/lib/jjrobot/certs/fullchain.pem:/certs/crt.pem
-    - /var/lib/jjrobot/certs/privkey.pem:/certs/key.pem
-    ports:
-    - 8000:8000
   ws_gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/ws_gateway:2.4.0
     container_name: robot-ws-gateway
