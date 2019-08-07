@@ -8,11 +8,9 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.backend=expression
       - traefik.http.frontend.rule=PathPrefix:/api/v2/expression
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
-      - traefik.grpc.backend=expression
       - traefik.grpc.frontend.rule=PathPrefix:/expressionService.ExpressionService
     volumes:
       - /etc/localtime:/etc/localtime:ro

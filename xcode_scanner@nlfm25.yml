@@ -13,7 +13,6 @@ services:
       - traefik.enable=true
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
-      - traefik.grpc.backend=xcode_scanner
       - traefik.grpc.frontend.rule=PathPrefix:/xcScannerService.XCodeScannerService
     devices:
       - /dev/ttyXcodeScanner:/dev/ttyXcodeScanner

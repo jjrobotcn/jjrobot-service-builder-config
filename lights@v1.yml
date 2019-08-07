@@ -12,11 +12,9 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.backend=lights
       - traefik.http.frontend.rule=PathPrefix:/api/v2/lights
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
-      - traefik.grpc.backend=lights
       - traefik.grpc.frontend.rule=PathPrefix:/lightsService.LightsService
     volumes:
       - /etc/localtime:/etc/localtime:ro
