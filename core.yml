@@ -64,13 +64,14 @@ services:
       --docker
       --docker.network=robotnet
       --docker.exposedbydefault=false
-  daemonreverseproxy:
+  daemon-reverse-proxy:
+    container_name: daemon-reverse-proxy
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/daemon-reverse-proxy:1.0.0
     restart: always
     labels:
       - traefik.enable=true
       - traefik.port=80
-      - traefik.backend=daemonreverseproxy
+      - traefik.backend=daemon-reverse-proxy
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7

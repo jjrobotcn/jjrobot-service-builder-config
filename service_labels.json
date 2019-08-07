@@ -135,8 +135,8 @@
       "name": "management-pages",
       "label": "开发管理平台页面"
     },
-    "daemonreverseproxy": {
-      "name": "daemonreverseproxy",
+    "daemon-reverse-proxy": {
+      "name": "daemon-reverse-proxy",
       "label": "Daemon reverse proxy"
     }
   }
