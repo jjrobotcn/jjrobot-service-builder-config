@@ -55,12 +55,14 @@ services:
     ports:
     - 80:80
     - 443:443
-    - 8000:8000
+    - 81:81
+    - 8001:8001
     command: >
-      --defaultentrypoints=http,https,grpc
+      --defaultentrypoints=http,https,httpinternal,grpcinternal
       --entrypoints="Name:http Address::80 Auth.Forward.Address:http://auth:9000/auth"
       --entrypoints="Name:https Address::443 TLS:/certs/cert.crt,/certs/cert.key Auth.Forward.Address:http://auth:9000/auth"
-      --entrypoints="Name:grpc Address::8000 TLS:/certs/grpc.crt,/certs/grpc.key"
+      --entrypoints="Name:httpinternal Address::81"
+      --entrypoints="Name:grpcinternal Address::8001"
       --docker
       --docker.network=robotnet
       --docker.exposedbydefault=false
