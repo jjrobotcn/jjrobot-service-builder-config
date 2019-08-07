@@ -60,7 +60,7 @@ services:
       --defaultentrypoints=http,https,grpc
       --entrypoints="Name:http Address::80 Auth.Forward.Address:http://auth:9000/auth"
       --entrypoints="Name:https Address::443 TLS:/certs/cert.crt,/certs/cert.key Auth.Forward.Address:http://auth:9000/auth"
-      --entrypoints="Name:grpc Address::8000 TLS:/certs/grpc.crt,/certs/grpc.key Auth.Forward.Address:http://auth:9000/auth"
+      --entrypoints="Name:grpc Address::8000 TLS:/certs/grpc.crt,/certs/grpc.key"
       --docker
       --docker.network=robotnet
       --docker.exposedbydefault=false
