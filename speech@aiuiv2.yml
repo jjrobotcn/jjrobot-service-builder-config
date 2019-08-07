@@ -11,9 +11,13 @@ services:
       - wifi_pwd=
     labels:
       - traefik.enable=true
-      - traefik.port=9000
-      - traefik.backend=speech
-      - traefik.frontend.rule=PathPrefix:/api/v2/speech
+      - traefik.http.port=9000
+      - traefik.http.backend=speech
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/speech
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.backend=speech
+      - traefik.grpc.frontend.rule=PathPrefix:/speechService.SpeechService
     volumes:
       - /etc/localtime:/etc/localtime:ro
     devices:

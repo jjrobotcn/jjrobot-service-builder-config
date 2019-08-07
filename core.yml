@@ -98,6 +98,12 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.3
     container_name: robot-messaging
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.backend=messaging
+      - traefik.grpc.frontend.rule=PathPrefix:/messagingService.MessagingService
     volumes:
     - /etc/localtime:/etc/localtime:ro
   import-export:

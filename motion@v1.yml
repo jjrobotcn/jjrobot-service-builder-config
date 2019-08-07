@@ -17,9 +17,13 @@ services:
       - HEAD_Y_AXIS_BOTTOM=150
     labels:
       - traefik.enable=true
-      - traefik.port=9000
-      - traefik.backend=motion
-      - traefik.frontend.rule=PathPrefix:/api/v2/motion
+      - traefik.http.port=9000
+      - traefik.http.backend=motion
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/motion
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.backend=motion
+      - traefik.grpc.frontend.rule=PathPrefix:/motionService.MotionService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-motion:
