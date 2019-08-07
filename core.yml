@@ -41,6 +41,15 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
+  api-doc:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.0.0
+    container_name: api-doc
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.backend=api-doc
+      - traefik.frontend.rule=PathPrefix:/api_doc
   gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/traefik:1.7.12
     container_name: robot-gateway
