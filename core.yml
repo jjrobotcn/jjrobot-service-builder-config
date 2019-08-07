@@ -49,8 +49,6 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
     - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
-    - /var/lib/jjrobot/certs/public.pem:/certs/grpc.crt:ro
-    - /var/lib/jjrobot/certs/key.pem:/certs/grpc.key:ro
     - /etc/localtime:/etc/localtime:ro
     ports:
     - 80:80
