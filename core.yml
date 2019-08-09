@@ -99,7 +99,7 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   messaging:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.4
     container_name: robot-messaging
     restart: always
     labels:
