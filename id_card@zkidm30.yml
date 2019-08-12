@@ -8,5 +8,10 @@ services:
     privileged: true
     environment:
       - module=zkidm30
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/idCardService.IDCardService
     volumes:
       - /etc/localtime:/etc/localtime:ro
