@@ -9,5 +9,12 @@ services:
       - /dev/snd
     environment:
       - LOG_LEVEL=debug
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v1/cuatomerservice/webrtc
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/audiowebrtc.AudioWebRTC
     volumes:
       - /etc/localtime:/etc/localtime:ro
