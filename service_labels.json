@@ -135,6 +135,14 @@
       "name": "management-pages",
       "label": "开发管理平台页面"
     },
+    "daemon-reverse-proxy": {
+      "name": "daemon-reverse-proxy",
+      "label": "Daemon reverse proxy"
+    },
+    "api-doc": {
+      "name": "api-doc",
+      "label": "API文档"
+    },
     "handsmotion": {
       "name": "handsmotion",
       "label": "手部运动模块"

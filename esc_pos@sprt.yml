@@ -2,11 +2,18 @@ version: "3"
 
 services:
   esc_pos:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/esc_pos:2.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/esc_pos:2.1.0
     container_name: service-esc-pos
     restart: always
     environment:
       - module=sprt
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/esc_pos
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/escposService.EscPosService
     volumes:
       - /etc/localtime:/etc/localtime:ro
     devices:

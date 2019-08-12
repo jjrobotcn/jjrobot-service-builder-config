@@ -2,12 +2,17 @@ version: "3"
 
 services:
   xcode_scanner:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.1
     container_name: service-xcode-scanner
     restart: always
     environment:
       - module=nlfm25
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/xcScannerService.XCodeScannerService
     devices:
       - /dev/ttyXcodeScanner:/dev/ttyXcodeScanner
