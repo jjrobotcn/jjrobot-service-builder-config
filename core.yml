@@ -49,7 +49,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/api_doc
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/traefik:1.7.12
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.7.0
     container_name: robot-gateway
     restart: always
     volumes:
@@ -62,15 +62,6 @@ services:
     - 443:443
     - 81:81
     - 8001:8001
-    command: >
-      --defaultentrypoints=http,https,httpinternal,grpcinternal
-      --entrypoints="Name:http Address::80 Auth.Forward.Address:http://auth:9000/auth"
-      --entrypoints="Name:https Address::443 TLS:/certs/cert.crt,/certs/cert.key Auth.Forward.Address:http://auth:9000/auth"
-      --entrypoints="Name:httpinternal Address::81"
-      --entrypoints="Name:grpcinternal Address::8001"
-      --docker
-      --docker.network=robotnet
-      --docker.exposedbydefault=false
   daemon-reverse-proxy:
     container_name: daemon-reverse-proxy
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/daemon-reverse-proxy:1.0.0
