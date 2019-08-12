@@ -32,7 +32,7 @@ services:
     - jwt_timeout_sec=604800
     - PASSWORD=123456
     - HTTP_URI_VALID_PREFIXES=/api/,/daemon/api/,/service/ws
-    - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info
+    - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info,/api/v1/customerservice/webrtc/signalling
     labels:
     - traefik.enable=true
     - traefik.port=9000
