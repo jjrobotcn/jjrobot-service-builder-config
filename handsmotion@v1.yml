@@ -9,5 +9,12 @@ services:
       - /dev/ttyUSB0:/dev/ttyHandsMotion
     environment:
       LOG_LEVEL: debug
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v2/motion/hands
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/handsmotion
     volumes:
       - /etc/localtime:/etc/localtime:ro
