@@ -2,7 +2,7 @@ version: "3"
 
 services:
   customerservice:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-customer-service:0.1.1-alpha2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-customer-service:0.1.1-alpha3
     container_name: customerservice
     restart: always
     devices:
