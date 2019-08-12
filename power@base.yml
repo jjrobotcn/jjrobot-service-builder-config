@@ -7,6 +7,11 @@ services:
     restart: always
     environment:
       - module=base
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/powerService.PowerService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-power:

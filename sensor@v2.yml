@@ -7,6 +7,11 @@ services:
     restart: always
     environment:
       - module=v2
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/sensorService.SensorService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-sensor:
