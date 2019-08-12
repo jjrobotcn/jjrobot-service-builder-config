@@ -13,6 +13,11 @@ services:
       - TOLERANCE=0.45
     ports:
       - 10900:8000
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/faceRecognition
     volumes:
       - /var/lib/jjrobot/face-sets:/face-sets
   face-recognition-gateway:
@@ -21,3 +26,7 @@ services:
     restart: always
     environment:
       - SERVICE_ENDPOINT=face-recognition:8000
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=PathPrefix:/api/v1/face
