@@ -2,7 +2,7 @@ version: "3"
 
 services:
   face-recognition:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.5
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.5-1
     container_name: face-recognition
     restart: always
     environment:
