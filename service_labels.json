@@ -39,6 +39,10 @@
       "name": "redis",
       "label": "REDIS"
     },
+    "robot-redis": {
+      "name": "redis",
+      "label": "REDIS"
+    },
     "db": {
       "name": "db",
       "label": "DATABASE"
