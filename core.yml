@@ -48,6 +48,14 @@ services:
       - traefik.enable=true
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/api_doc
+  cors:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/cors-preflight:1.0.0
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=Method:OPTIONS
   gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.7.0
     container_name: robot-gateway
