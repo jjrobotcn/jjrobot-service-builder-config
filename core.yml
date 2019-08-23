@@ -137,7 +137,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.port=8000
-      - traefik.frontend.rule=PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
+      - traefik.frontend.rule=Method:GET;PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
 
 networks:
   default:
