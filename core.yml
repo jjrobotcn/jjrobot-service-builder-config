@@ -51,6 +51,7 @@ services:
   cors:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/cors-preflight:1.0.0
     container_name: cors
+    restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
     labels:
@@ -80,7 +81,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.0
     container_name: management-pages
     restart: always
     labels:

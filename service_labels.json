@@ -150,5 +150,17 @@
     "cors": {
       "name": "cors",
       "label": "CORS"
+    },
+    "camera-recorder": {
+      "name": "camera-recorder",
+      "label": "CameraRecorder"
+    },
+    "surveillance-storage": {
+      "name": "surveillance-storage",
+      "label": "监控存储服务"
+    },
+    "camera-ntp-sync": {
+      "name": "camera-ntp-sync",
+      "label": "监控时间同步"
     }
   }
