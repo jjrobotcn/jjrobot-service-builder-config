@@ -3,7 +3,7 @@ version: "3"
 services:
   esc_pos:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/esc_pos:2.1.0
-    container_name: service-esc-pos
+    container_name: esc_pos
     restart: always
     environment:
       - module=sprt

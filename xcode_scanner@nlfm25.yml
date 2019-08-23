@@ -3,7 +3,7 @@ version: "3"
 services:
   xcode_scanner:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.1
-    container_name: service-xcode-scanner
+    container_name: xcode_scanner
     restart: always
     environment:
       - module=nlfm25

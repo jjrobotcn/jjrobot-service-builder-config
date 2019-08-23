@@ -3,7 +3,7 @@ version: "3"
 services:
   expression:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.2.1
-    container_name: service-expression
+    container_name: expression
     restart: always
     labels:
       - traefik.enable=true

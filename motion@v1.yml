@@ -3,7 +3,7 @@ version: "3"
 services:
   motion:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
-    container_name: service-motion
+    container_name: motion
     restart: always
     environment:
       - module=v1

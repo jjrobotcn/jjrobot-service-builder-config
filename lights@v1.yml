@@ -3,7 +3,7 @@ version: "3"
 services:
   lights:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.2.2
-    container_name: service-lights
+    container_name: lights
     restart: always
     environment:
       - mouth_length=0

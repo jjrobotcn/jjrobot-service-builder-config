@@ -3,7 +3,7 @@ version: "3"
 services:
   speech:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:2.1.5
-    container_name: service-speech
+    container_name: speech
     restart: always
     environment:
       - module=aiuiv2

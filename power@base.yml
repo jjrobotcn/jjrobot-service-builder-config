@@ -3,7 +3,7 @@ version: "3"
 services:
   power:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/power:1.0.3
-    container_name: service-power
+    container_name: power
     restart: always
     environment:
       - module=base
