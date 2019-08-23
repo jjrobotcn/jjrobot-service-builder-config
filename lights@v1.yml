@@ -12,7 +12,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.frontend.rule=PathPrefix:/api/v2/lights
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/lights
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/lightsService.LightsService
