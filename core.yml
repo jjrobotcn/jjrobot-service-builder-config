@@ -41,7 +41,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   api-doc:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.2.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.2.1
     container_name: api-doc
     restart: always
     labels:
