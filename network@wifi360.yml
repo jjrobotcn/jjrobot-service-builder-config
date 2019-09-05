@@ -2,8 +2,8 @@ version: "3"
 
 services:
   network:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/network:1.3.0
-    container_name: service-network
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/network:1.3.1
+    container_name: network
     restart: always
     environment:
       - module=wifi360
@@ -12,7 +12,8 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.frontend.rule=PathPrefix:/api/v2/network
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/network
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/networkService.NetworkService

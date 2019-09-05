@@ -27,51 +27,55 @@
       "name": "gserial-chassis",
       "label": "导航模块串口服务"
     },
-    "service-motion": {
+    "motion": {
       "name": "motion",
       "label": "运动模块"
     },
-    "service-nav": {
+    "nav": {
       "name": "nav",
       "label": "导航模块"
+    },
+    "redis": {
+      "name": "redis",
+      "label": "REDIS"
     },
     "robot-redis": {
       "name": "redis",
       "label": "REDIS"
     },
-    "robot-db": {
+    "db": {
       "name": "db",
       "label": "DATABASE"
     },
-    "robot-auth": {
+    "auth": {
       "name": "auth",
       "label": "AUTH"
     },
-    "robot-frpc": {
+    "frpc": {
       "name": "frpc",
       "label": "远程支持服务"
     },
-    "robot-gateway": {
+    "gateway": {
       "name": "gateway",
       "label": "网关服务"
     },
-    "robot-gateway-envoy": {
+    "gateway-envoy": {
       "name": "gateway-envoy",
-      "label": "网关服务ENVOY"
+      "label": "ENVOY网关服务"
     },
-    "robot-ws-gateway": {
+    "ws_gateway": {
       "name": "ws_gateway",
       "label": "WEBSOCKET网关服务"
     },
-    "service-id-card": {
+    "id_card": {
       "name": "id_card",
       "label": "身份证模块"
     },
-    "service-network": {
+    "network": {
       "name": "network",
       "label": "网络模块"
     },
-    "service-power": {
+    "power": {
       "name": "power",
       "label": "电源模块"
     },
@@ -79,57 +83,57 @@
       "name": "fileman-el",
       "label": "表情灯光文件服务"
     },
-    "service-expression": {
+    "expression": {
       "name": "expression",
       "label": "表情模块"
     },
-    "service-lights": {
+    "lights": {
       "name": "lights",
       "label": "灯光模块"
     },
-    "service-esc-pos": {
+    "esc_pos": {
       "name": "esc_pos",
       "label": "小票打印模块"
     },
-    "service-camera": {
+    "camera": {
       "name": "camera",
-      "label": "监控模块"
+      "label": "摄像头模块"
     },
-    "robot-webrtc-server": {
+    "webrtc-server": {
       "name": "webrtc-server",
-      "label": "监控模块WEBRTC_SERVER"
+      "label": "WebRTC监控"
     },
-    "robot-kms": {
+    "kms": {
       "name": "kms",
-      "label": "监控模块KMS_SERVER"
+      "label": "KMS"
     },
-    "robot-messaging": {
+    "messaging": {
       "name": "messaging",
       "label": "消息模块"
     },
-    "service-xcode-scanner": {
+    "xcode_scanner": {
       "name": "xcode_scanner",
       "label": "扫码模块"
     },
-    "robot-import-export": {
+    "import-export": {
       "name": "import-export",
       "label": "导入导出模块"
     },
-    "service-speech": {
+    "speech": {
       "name": "speech",
       "label": "语音模块"
     },
-    "service-sensor": {
+    "sensor": {
       "name": "sensor",
       "label": "传感器模块"
     },
     "face-recognition": {
-      "name": "face-server",
+      "name": "face-recognition",
       "label": "人脸识别模块"
     },
     "face-recognition-gateway": {
-      "name": "face-gateway",
-      "label": "人脸识别模块代理网关"
+      "name": "face-recognition-gateway",
+      "label": "人脸识别模块网关"
     },
     "management-pages": {
       "name": "management-pages",
@@ -137,10 +141,26 @@
     },
     "daemon-reverse-proxy": {
       "name": "daemon-reverse-proxy",
-      "label": "Daemon reverse proxy"
+      "label": "DaemonReverseProxy"
     },
     "api-doc": {
       "name": "api-doc",
       "label": "API文档"
+    },
+    "cors": {
+      "name": "cors",
+      "label": "CORS"
+    },
+    "camera-recorder": {
+      "name": "camera-recorder",
+      "label": "CameraRecorder"
+    },
+    "surveillance-storage": {
+      "name": "surveillance-storage",
+      "label": "监控存储服务"
+    },
+    "camera-ntp-sync": {
+      "name": "camera-ntp-sync",
+      "label": "监控时间同步"
     }
   }

@@ -3,7 +3,7 @@ version: "3"
 services:
   motion:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
-    container_name: service-motion
+    container_name: motion
     restart: always
     environment:
       - module=v1
@@ -18,7 +18,8 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.frontend.rule=PathPrefix:/api/v2/motion
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/motion
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/motionService.MotionService

@@ -3,14 +3,15 @@ version: "3"
 services:
   esc_pos:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/esc_pos:2.1.0
-    container_name: service-esc-pos
+    container_name: esc_pos
     restart: always
     environment:
       - module=sprt
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.frontend.rule=PathPrefix:/api/v2/esc_pos
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/esc_pos
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/escposService.EscPosService

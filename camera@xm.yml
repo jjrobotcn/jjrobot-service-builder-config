@@ -2,23 +2,21 @@ version: "3"
 
 services:
   camera:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera:1.0.2
-    container_name: service-camera
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera:1.1.1
+    container_name: camera
     restart: always
     environment:
-      - module=xm
-      - dvr=0
-      - dvr_store_days=7
       - host=10.10.10.10
       - user=admin
       - pwd=
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
-      - traefik.http.frontend.rule=PathPrefix:/api/v2/camera
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/camera
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/cameraService/CameraService
+      - traefik.grpc.frontend.rule=PathPrefix:/cameraService.CameraService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/lib/jjrobot/dvr:/dvr
+      - /var/lib/jjrobot/surveillance/image:/captures

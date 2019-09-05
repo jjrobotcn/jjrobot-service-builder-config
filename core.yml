@@ -3,7 +3,7 @@ version: "3"
 services:
   db:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/mongo:4.0.5
-    container_name: robot-db
+    container_name: db
     restart: always
     environment:
     - MONGO_INITDB_ROOT_USERNAME=robotjj
@@ -19,14 +19,14 @@ services:
     - /etc/localtime:/etc/localtime:ro
   frpc:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/frpc:1.1.0
-    container_name: robot-frpc
+    container_name: frpc
     restart: always
     network_mode: host
     volumes:
     - /etc/localtime:/etc/localtime:ro
   auth:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.2
-    container_name: robot-auth
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.4
+    container_name: auth
     restart: always
     environment:
     - jwt_timeout_sec=604800
@@ -36,21 +36,31 @@ services:
     labels:
     - traefik.enable=true
     - traefik.port=9000
-    - traefik.frontend.rule=PathPrefix:/auth
+    - traefik.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/auth
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   api-doc:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.2.1
     container_name: api-doc
     restart: always
     labels:
       - traefik.enable=true
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/api_doc
+  cors:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/cors-preflight:1.0.0
+    container_name: cors
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=Method:OPTIONS
   gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.7.0
-    container_name: robot-gateway
+    container_name: gateway
     restart: always
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
@@ -71,7 +81,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.7.7
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.0
     container_name: management-pages
     restart: always
     labels:
@@ -80,7 +90,7 @@ services:
       - traefik.frontend.rule=PathPrefix:/
   ws_gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/ws_gateway:2.4.0
-    container_name: robot-ws-gateway
+    container_name: ws_gateway
     restart: always
     labels:
       - traefik.enable=true
@@ -91,7 +101,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
   messaging:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.4
-    container_name: robot-messaging
+    container_name: messaging
     restart: always
     labels:
       - traefik.enable=true
@@ -102,7 +112,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
   import-export:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/import_export:1.2.0
-    container_name: robot-import-export
+    container_name: import-export
     restart: always
     labels:
       - traefik.enable=true
@@ -112,7 +122,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
   kms:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kms:latest
-    container_name: robot-kms
+    container_name: kms
     restart: always
     network_mode: host
     volumes:
@@ -122,14 +132,14 @@ services:
       - KMS_TURN_URL=test:abc@119.23.254.113:3478
   webrtc-server:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.1
-    container_name: robot-webrtc-server
+    container_name: webrtc-server
     restart: always
     environment:
       - KMS_WS_URI=ws://10.10.10.2:8888/kurento
     labels:
       - traefik.enable=true
       - traefik.port=8000
-      - traefik.frontend.rule=PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
+      - traefik.frontend.rule=Method:GET;PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
 
 networks:
   default:

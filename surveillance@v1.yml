@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  camera-recorder:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera-recorder:1.0.1
+    container_name: camera-recorder
+    restart: always
+    environment:
+      - DURATION=600
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/surveillance/tmp:/videos
+  surveillance-storage:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/surveillance-storage:1.0.0
+    container_name: surveillance-storage
+    restart: always
+    environment:
+      - KEEP_DAYS=7
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/surveillance/tmp:/surveillance/tmp
+      - /var/lib/jjrobot/surveillance/videos:/surveillance/videos
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/camera/storage
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/cameraService.Storage
+  camera-ntp-sync:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera-onvif-ntp-sync:1.0.0
+    container_name: camera-ntp-sync
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
