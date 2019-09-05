@@ -2,7 +2,7 @@ version: "3"
 
 services:
   face-recognition:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.5-1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:0.0.11
     container_name: face-recognition
     restart: always
     environment:
@@ -11,17 +11,16 @@ services:
       - DB_USER=robotjj
       - DB_PASS=ROBOTjjROBOT
       - TOLERANCE=0.45
-    ports:
-      - 10900:8000
     labels:
       - traefik.enable=true
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/faceRecognition
     volumes:
-      - /var/lib/jjrobot/face-sets:/face-sets
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/faces:/faces
   face-recognition-gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition-gateway:0.0.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition-gateway:0.0.3
     container_name: face-recognition-gateway
     restart: always
     environment:
@@ -30,3 +29,6 @@ services:
       - traefik.enable=true
       - traefik.http.port=9000
       - traefik.http.frontend.rule=PathPrefix:/api/v1/face
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/faces:/faces
