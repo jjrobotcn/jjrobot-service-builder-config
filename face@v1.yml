@@ -11,6 +11,8 @@ services:
       - DB_USER=robotjj
       - DB_PASS=ROBOTjjROBOT
       - TOLERANCE=0.45
+    depends_on:
+      - camera
     labels:
       - traefik.enable=true
       - traefik.grpc.protocol=h2c
@@ -29,6 +31,8 @@ services:
       - traefik.enable=true
       - traefik.http.port=9000
       - traefik.http.frontend.rule=PathPrefix:/api/v1/face
+    depends_on:
+      - face-recognition
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/faces:/faces
