@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
     container_name: motion
     restart: always
+    depends_on:
+      - gserial-motion
     environment:
       - module=v1
       - HEAD_X_AXIS_OFFSET=0
@@ -26,9 +28,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-motion
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyMotion:/dev/ttyMotion
     ports:

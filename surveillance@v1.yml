@@ -2,7 +2,7 @@ version: "3"
 
 services:
   camera-recorder:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera-recorder:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera-recorder:1.0.2
     container_name: camera-recorder
     restart: always
     environment:

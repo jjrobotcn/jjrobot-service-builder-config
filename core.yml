@@ -25,7 +25,7 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   auth:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/auth:1.1.5
     container_name: auth
     restart: always
     environment:
@@ -44,6 +44,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.2.1
     container_name: api-doc
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     labels:
       - traefik.enable=true
       - traefik.port=80
@@ -76,14 +78,18 @@ services:
     container_name: daemon-reverse-proxy
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/daemon-reverse-proxy:1.0.0
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     labels:
       - traefik.enable=true
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.2
     container_name: management-pages
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     labels:
       - traefik.enable=true
       - traefik.port=80
@@ -134,8 +140,12 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.1
     container_name: webrtc-server
     restart: always
+    depends_on:
+      - kms
     environment:
       - KMS_WS_URI=ws://10.10.10.2:8888/kurento
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     labels:
       - traefik.enable=true
       - traefik.port=8000

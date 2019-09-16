@@ -26,4 +26,5 @@ services:
     restart: always
     volumes:
       - /home/boocax:/home/boocax
+      - /etc/localtime:/etc/localtime:ro
     command: ["-path", "/home/boocax"]

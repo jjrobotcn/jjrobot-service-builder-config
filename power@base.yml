@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/power:1.0.3
     container_name: power
     restart: always
+    depends_on:
+      - gserial-power
     environment:
       - module=base
     labels:
@@ -15,9 +17,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-power:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-power
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyPower:/dev/ttyPower
     ports:
