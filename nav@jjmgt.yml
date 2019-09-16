@@ -18,7 +18,7 @@ services:
     environment:
       - module=jjmgt
   gserial-chassis:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-chassis
     restart: always
     devices:

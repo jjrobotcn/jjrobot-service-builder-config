@@ -20,7 +20,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-head:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-head
     restart: always
     devices:
