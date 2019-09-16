@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.2.7
     container_name: nav
     restart: always
+    depends_on:
+      - gserial-chassis
     labels:
       - traefik.enable=true
       - traefik.http.port=9000

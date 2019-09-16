@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.2.1
     container_name: expression
     restart: always
+    depends_on:
+      - gserial-head
     labels:
       - traefik.enable=true
       - traefik.http.port=9000

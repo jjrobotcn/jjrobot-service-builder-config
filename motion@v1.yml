@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
     container_name: motion
     restart: always
+    depends_on:
+      - gserial-motion
     environment:
       - module=v1
       - HEAD_X_AXIS_OFFSET=0

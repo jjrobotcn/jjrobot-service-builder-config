@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.2.2
     container_name: lights
     restart: always
+    depends_on:
+      - gserial-head
     environment:
       - mouth_length=0
       - ears_length=0

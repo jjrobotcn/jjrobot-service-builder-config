@@ -134,6 +134,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/webrtc-server:1.1.1
     container_name: webrtc-server
     restart: always
+    depends_on:
+      - kms
     environment:
       - KMS_WS_URI=ws://10.10.10.2:8888/kurento
     labels:

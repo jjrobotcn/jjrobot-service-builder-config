@@ -5,6 +5,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.2.1
     container_name: sensor
     restart: always
+    depends_on:
+      - gserial-sensor
     environment:
       - module=v2
     labels:
