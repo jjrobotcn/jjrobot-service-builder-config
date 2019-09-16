@@ -21,6 +21,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-head
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyHead:/dev/ttyHead
     ports:
@@ -32,5 +34,6 @@ services:
     restart: always
     volumes:
       - /media/jjrobot-le-media:/storage
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - ROOT=/storage

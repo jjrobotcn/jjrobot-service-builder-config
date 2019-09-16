@@ -23,6 +23,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
     container_name: gserial-chassis
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyChas:/dev/ttyChas
     ports:
