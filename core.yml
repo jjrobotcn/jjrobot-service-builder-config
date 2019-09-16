@@ -81,7 +81,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.2
     container_name: management-pages
     restart: always
     labels:
