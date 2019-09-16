@@ -2,7 +2,7 @@ version: "3"
 
 services:
   camera:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera:1.1.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/camera:1.1.2
     container_name: camera
     restart: always
     environment:
@@ -19,4 +19,3 @@ services:
       - traefik.grpc.frontend.rule=PathPrefix:/cameraService.CameraService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/lib/jjrobot/surveillance/image:/captures
