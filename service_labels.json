@@ -162,5 +162,9 @@
     "camera-ntp-sync": {
       "name": "camera-ntp-sync",
       "label": "监控时间同步"
+    },
+    "kvstore": {
+      "name": "kvstore",
+      "label": "KVStore"
     }
-  }
+}

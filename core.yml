@@ -150,6 +150,21 @@ services:
       - traefik.enable=true
       - traefik.port=8000
       - traefik.frontend.rule=Method:GET;PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
+  kvstore:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kvstore:1.0.0
+    container_name: kvstore
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/kvstore
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/kvstore
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/kvstore:/db
 
 networks:
   default:
