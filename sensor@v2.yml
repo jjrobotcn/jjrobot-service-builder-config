@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.2.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.3.0
     container_name: sensor
     restart: always
     depends_on:
@@ -14,6 +14,9 @@ services:
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/sensorService.SensorService
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/sensor
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gserial-sensor:
