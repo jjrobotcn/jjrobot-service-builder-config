@@ -151,7 +151,7 @@ services:
       - traefik.port=8000
       - traefik.frontend.rule=Method:GET;PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
   kvstore:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kvstore:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kvstore:1.1.0
     container_name: kvstore
     restart: always
     labels:
