@@ -2,11 +2,11 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.2.7
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.3.0-hwdevice
     container_name: nav
     restart: always
     depends_on:
-      - gserial-chassis
+      - hwdevice-nav
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
@@ -19,14 +19,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - module=jjbase
-  gserial-chassis:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-chassis
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
+  hwdevice-nav:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    container_name: hwdevice-nav
     devices:
-      - /dev/ttyChas:/dev/ttyChas
-    ports:
-      - 127.0.0.1:28055:8000
-    command: ["-device", "/dev/ttyChas", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttyChas:/dev/ttyHWDevice

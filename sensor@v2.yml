@@ -2,11 +2,12 @@ version: "3"
 
 services:
   sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.3.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.4.0-hwdevice
     container_name: sensor
     restart: always
     depends_on:
-      - gserial-sensor
+      - hwdevice-sensor
+      - hwdevice-head
     environment:
       - module=v2
     labels:
@@ -19,14 +20,8 @@ services:
       - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-sensor
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
+  hwdevice-sensor:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    container_name: hwdevice-sensor
     devices:
-      - /dev/ttySensor:/dev/ttySensor
-    ports:
-      - 127.0.0.1:28052:8000
-    command: ["-device", "/dev/ttySensor", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttySensor:/dev/ttyHWDevice

@@ -6,7 +6,7 @@ services:
     container_name: lights
     restart: always
     depends_on:
-      - gserial-head
+      - hwdevice-head
     environment:
       - mouth_length=0
       - ears_length=0
@@ -21,17 +21,11 @@ services:
       - traefik.grpc.frontend.rule=PathPrefix:/lightsService.LightsService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-head:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-head
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
+  hwdevice-head:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    container_name: hwdevice-head
     devices:
-      - /dev/ttyHead:/dev/ttyHead
-    ports:
-      - 127.0.0.1:28053:8000
-    command: ["-device", "/dev/ttyHead", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttyHead:/dev/ttyHWDevice
   fileman-el:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
     container_name: fileman-el

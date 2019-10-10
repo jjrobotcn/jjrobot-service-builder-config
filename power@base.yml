@@ -2,28 +2,26 @@ version: "3"
 
 services:
   power:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/power:1.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/power:1.1.0-hwdevice
     container_name: power
     restart: always
     depends_on:
-      - gserial-power
+      - hwdevice-power
+      - nav
     environment:
       - module=base
     labels:
       - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/power
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/powerService.PowerService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-power:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-power
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
+  hwdevice-power:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    container_name: hwdevice-power
     devices:
-      - /dev/ttyPower:/dev/ttyPower
-    ports:
-      - 127.0.0.1:28054:8000
-    command: ["-device", "/dev/ttyPower", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttyPower:/dev/ttyHWDevice
