@@ -23,5 +23,6 @@ services:
   hwdevice-sensor:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
     container_name: hwdevice-sensor
+    restart: always
     devices:
       - /dev/ttySensor:/dev/ttyHWDevice

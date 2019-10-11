@@ -23,5 +23,6 @@ services:
   hwdevice-power:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
     container_name: hwdevice-power
+    restart: always
     devices:
       - /dev/ttyPower:/dev/ttyHWDevice

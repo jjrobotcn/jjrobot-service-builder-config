@@ -20,6 +20,7 @@ services:
   hwdevice-head:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
     container_name: hwdevice-head
+    restart: always
     devices:
       - /dev/ttyHead:/dev/ttyHWDevice
   fileman-el:
