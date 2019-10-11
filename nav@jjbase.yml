@@ -25,3 +25,8 @@ services:
     restart: always
     devices:
       - /dev/ttyChas:/dev/ttyHWDevice
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:nav
