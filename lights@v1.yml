@@ -2,7 +2,7 @@ version: "3"
 
 services:
   lights:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.2.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.3.0-hwdevice
     container_name: lights
     restart: always
     depends_on:
