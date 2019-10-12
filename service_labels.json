@@ -166,5 +166,13 @@
     "kvstore": {
       "name": "kvstore",
       "label": "KVStore"
+    },
+    "aging-test-service": {
+      "name": "aging-test-service",
+      "label": "ats"
+    },
+    "aging-test-pages": {
+      "name": "aging-test-pages",
+      "label": "atp"
     }
 }
