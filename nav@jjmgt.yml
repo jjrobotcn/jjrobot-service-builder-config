@@ -20,7 +20,7 @@ services:
     environment:
       - module=jjmgt
   hwdevice-nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
     container_name: hwdevice-nav
     restart: always
     devices:

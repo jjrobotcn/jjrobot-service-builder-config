@@ -21,7 +21,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-power:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
     container_name: hwdevice-power
     restart: always
     devices:
