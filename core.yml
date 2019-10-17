@@ -106,11 +106,14 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   messaging:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.5
     container_name: messaging
     restart: always
     labels:
       - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/messaging
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/messagingService.MessagingService
