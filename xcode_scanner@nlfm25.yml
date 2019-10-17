@@ -2,7 +2,7 @@ version: "3"
 
 services:
   xcode_scanner:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.2
     container_name: xcode_scanner
     restart: always
     environment:
@@ -11,6 +11,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
     labels:
       - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/xcodescanner
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/xcScannerService.XCodeScannerService
