@@ -168,6 +168,26 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/kvstore:/db
+  aging-test-service:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestservice:1.0.1
+    container_name: aging-test-service
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging/api
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  aging-test-pages:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestpages:1.0.0
+    container_name: aging-test-pages
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.port=80
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
 
 networks:
   default:
