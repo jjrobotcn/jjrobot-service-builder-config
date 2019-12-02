@@ -191,6 +191,7 @@ services:
   audiovideo:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:dev
     container_name: audiovideo
+    network_mode: host
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
