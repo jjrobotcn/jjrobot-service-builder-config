@@ -2,11 +2,12 @@ version: "3"
 
 services:
   sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.2.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.4.0
     container_name: sensor
     restart: always
     depends_on:
-      - gserial-sensor
+      - hwdevice-sensor
+      - hwdevice-head
     environment:
       - module=v2
     labels:
@@ -14,16 +15,19 @@ services:
       - traefik.grpc.protocol=h2c
       - traefik.grpc.port=8000
       - traefik.grpc.frontend.rule=PathPrefix:/sensorService.SensorService
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/sensor
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-sensor
+  hwdevice-sensor:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
+    container_name: hwdevice-sensor
     restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/ttySensor:/dev/ttySensor
-    ports:
-      - 127.0.0.1:28052:8000
-    command: ["-device", "/dev/ttySensor", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttySensor:/dev/ttyHWDevice
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:sensor

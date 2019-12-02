@@ -7,25 +7,25 @@
       "name": "bks-fs",
       "label": "无线导航文件服务"
     },
-    "gserial-sensor": {
-      "name": "gserial-sensor",
-      "label": "传感器串口服务"
+    "hwdevice-sensor": {
+      "name": "hwdevice-sensor",
+      "label": "传感器模块硬件服务"
     },
-    "gserial-motion": {
-      "name": "gserial-motion",
-      "label": "运动模块串口服务"
+    "hwdevice-motion": {
+      "name": "hwdevice-motion",
+      "label": "运动模块硬件服务"
     },
-    "gserial-head": {
-      "name": "gserial-head",
-      "label": "灯光表情模块串口服务"
+    "hwdevice-head": {
+      "name": "hwdevice-head",
+      "label": "灯光表情模块硬件服务"
     },
-    "gserial-power": {
-      "name": "gserial-power",
-      "label": "电源模块串口服务"
+    "hwdevice-power": {
+      "name": "hwdevice-power",
+      "label": "电源模块硬件服务"
     },
-    "gserial-chassis": {
-      "name": "gserial-chassis",
-      "label": "导航模块串口服务"
+    "hwdevice-nav": {
+      "name": "hwdevice-nav",
+      "label": "导航模块硬件服务"
     },
     "motion": {
       "name": "motion",
@@ -166,5 +166,13 @@
     "kvstore": {
       "name": "kvstore",
       "label": "KVStore"
+    },
+    "aging-test-service": {
+      "name": "aging-test-service",
+      "label": "ats"
+    },
+    "aging-test-pages": {
+      "name": "aging-test-pages",
+      "label": "atp"
     }
 }

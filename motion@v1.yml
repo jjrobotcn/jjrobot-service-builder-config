@@ -2,11 +2,11 @@ version: "3"
 
 services:
   motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.1.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.3.0
     container_name: motion
     restart: always
     depends_on:
-      - gserial-motion
+      - hwdevice-motion
     environment:
       - module=v1
       - HEAD_X_AXIS_OFFSET=0
@@ -27,14 +27,14 @@ services:
       - traefik.grpc.frontend.rule=PathPrefix:/motionService.MotionService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-motion
+  hwdevice-motion:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
+    container_name: hwdevice-motion
     restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/ttyMotion:/dev/ttyMotion
-    ports:
-      - 127.0.0.1:28051:8000
-    command: ["-device", "/dev/ttyMotion", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttyMotion:/dev/ttyHWDevice
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:motion

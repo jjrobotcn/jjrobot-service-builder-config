@@ -2,11 +2,11 @@ version: "3"
 
 services:
   expression:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.2.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.3.0
     container_name: expression
     restart: always
     depends_on:
-      - gserial-head
+      - hwdevice-head
     labels:
       - traefik.enable=true
       - traefik.http.port=9000
@@ -17,17 +17,19 @@ services:
       - traefik.grpc.frontend.rule=PathPrefix:/expressionService.ExpressionService
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  gserial-head:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/grpc_serial:1.1.1
-    container_name: gserial-head
+  hwdevice-head:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
+    container_name: hwdevice-head
     restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - COMPATIBLE=1
     devices:
-      - /dev/ttyHead:/dev/ttyHead
-    ports:
-      - 127.0.0.1:28053:8000
-    command: ["-device", "/dev/ttyHead", "-protocol", "jjrobot", "-log", "info"]
+      - /dev/ttyHead:/dev/ttyHWDevice
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:head
   fileman-el:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
     container_name: fileman-el
