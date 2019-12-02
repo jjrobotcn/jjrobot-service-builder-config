@@ -174,5 +174,13 @@
     "aging-test-pages": {
       "name": "aging-test-pages",
       "label": "atp"
+    },
+    "audiovideo": {
+      "name": "audiovideo",
+      "label": "av"
+    },
+    "audiovideogw": {
+      "name": "audiovideogw",
+      "label": "avgw"
     }
 }
