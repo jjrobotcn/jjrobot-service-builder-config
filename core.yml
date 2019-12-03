@@ -193,8 +193,10 @@ services:
     container_name: audiovideo
     network_mode: host
     restart: always
+    privileged: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /dev:/dev
   audiovideogw:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:dev
     container_name: audiovideogw
