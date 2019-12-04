@@ -193,6 +193,18 @@ services:
     container_name: audiovideo
     network_mode: host
     restart: always
+    environment:
+      - RTSP_AV_MAIN=
+      - RTAP_V_NAV=
+      - V4L2_V_NAV=/dev/video0
+      - MAIN_VIDEO_WIDTH=640
+      - MAIN_VIDEO_HEIGHT=360
+      - MAIN_VIDEO_FRAMERATE=20
+      - MAIN_VIDEO_BITRATE=150000
+      - NAV_VIDEO_WIDTH=640
+      - NAV_VIDEO_HEIGHT=360
+      - NAV_VIDEO_FRAMERATE=15
+      - NAV_VIDEO_BITRATE=100000
     privileged: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
