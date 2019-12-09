@@ -189,7 +189,7 @@ services:
       - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging
       - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
   audiovideo:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.1-rc
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.1-rc-1
     container_name: audiovideo
     network_mode: host
     restart: always
