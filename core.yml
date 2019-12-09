@@ -189,7 +189,7 @@ services:
       - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging
       - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
   audiovideo:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:dev
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.1-rc
     container_name: audiovideo
     network_mode: host
     restart: always
@@ -210,7 +210,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
   audiovideogw:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:dev
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.0
     container_name: audiovideogw
     restart: always
     labels:
