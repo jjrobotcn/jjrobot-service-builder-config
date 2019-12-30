@@ -85,7 +85,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:feature-audiovideo
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.10.0
     container_name: management-pages
     restart: always
     volumes:
