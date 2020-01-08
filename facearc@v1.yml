@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  face-recognition:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:1.1.0-arc
+    container_name: face-recognition
+    restart: always
+    depends_on:
+      - camera
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/faces-arc:/face_images
+    environment:
+      - DB_HOST=db
+      - DB_PORT=27017
+      - DB_USER=robotjj
+      - DB_PASS=ROBOTjjROBOT
+      - MGO_IMAGE_ROOT=/face_images
+      - INSECURE_CAMERA_SERVICE_ADDRESS=camera:8000
+      - DEFAULT_ON_FACE_DETECT_INTERVAL=300ms
+      - DEFAULT_ON_FACE_SET_FACE_DETECT_INTERVAL=300ms
+      - DEFAULT_ON_FACE_SET_FACE_DETECT_CONFIDENCE_MIN=0.6
+    labels:
+      - traefik.enable=true
+      - traefik.grpc.protocol=h2c
+      - traefik.grpc.port=8000
+      - traefik.grpc.frontend.rule=PathPrefix:/faceRecognition
+      - traefik.http.port=9000
+      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/face
+      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
+    mac_address: fc:aa:14:d7:cc:38
