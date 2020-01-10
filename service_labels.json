@@ -182,5 +182,9 @@
     "audiovideogw": {
       "name": "audiovideogw",
       "label": "avgw"
+    },
+    "robotproxyv2": {
+      "name": "robotproxyv2",
+      "label": "远程支持服务v2"
     }
 }
