@@ -25,7 +25,7 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   robotproxy:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.1.0.alpha.1
     container_name: robotproxy
     restart: always
     network_mode: host
@@ -66,18 +66,20 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=Method:OPTIONS
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.7.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.8.0.alpha.1
     container_name: gateway
     restart: always
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
-    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
+#    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/lib/jjrobot/certs:/certs:ro
+#    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
+#    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
     - /etc/localtime:/etc/localtime:ro
     ports:
     - 80:80
     - 443:443
     - 81:81
+    - 8000:8000
     - 8001:8001
   daemon-reverse-proxy:
     container_name: daemon-reverse-proxy

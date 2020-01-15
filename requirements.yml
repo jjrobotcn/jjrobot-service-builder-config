@@ -10,3 +10,12 @@ requirements:
   - image:
       image: registry.cn-shenzhen.aliyuncs.com/jjrobot/jjrobotd:2.4.0
       rename: jjrobot/jjrobotd
+  - file:
+      src: https://s.jj-robot.com/certs/grpcs/server.pem
+      dst: /var/lib/jjrobot/certs/grpc.pem
+  - file:
+      src: https://s.jj-robot.com/certs/grpcs/server.key
+      dst: /var/lib/jjrobot/certs/grpc.key
+  - file:
+      src: https://s.jj-robot.com/certs/grpcs/ca.pem
+      dst: /var/lib/jjrobot/certs/grpc.ca.pem
