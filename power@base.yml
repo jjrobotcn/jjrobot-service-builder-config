@@ -10,14 +10,6 @@ services:
       - nav
     environment:
       - module=base
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/power
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/powerService.PowerService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-power:
@@ -26,8 +18,3 @@ services:
     restart: always
     devices:
       - /dev/ttyPower:/dev/ttyHWDevice
-    labels:
-      - traefik.enable=true
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:power

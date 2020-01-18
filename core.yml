@@ -38,10 +38,6 @@ services:
     - PASSWORD=123456
     - HTTP_URI_VALID_PREFIXES=/api/,/daemon/api/,/service/ws
     - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info,/api/v2/audiovideo/webrtc/rtc_peer_connection,/api/v2/audiovideo/webrtc/media
-    labels:
-    - traefik.enable=true
-    - traefik.port=9000
-    - traefik.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/auth
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
@@ -51,20 +47,12 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    labels:
-      - traefik.enable=true
-      - traefik.port=80
-      - traefik.frontend.rule=PathPrefix:/api_doc
   cors:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/cors-preflight:1.0.0
     container_name: cors
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    labels:
-      - traefik.enable=true
-      - traefik.port=80
-      - traefik.frontend.rule=Method:OPTIONS
   gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.8.0.alpha.1
     container_name: gateway
@@ -85,53 +73,28 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    labels:
-      - traefik.enable=true
-      - traefik.port=80
-      - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.10.1
     container_name: management-pages
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    labels:
-      - traefik.enable=true
-      - traefik.port=80
-      - traefik.frontend.rule=PathPrefix:/
   ws_gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/ws_gateway:2.4.0
     container_name: ws_gateway
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.port=8000
-      - traefik.v1.frontend.rule=PathPrefix:/service/ws;ReplacePath:/service/ws/v2
-      - traefik.v2.frontend.rule=PathPrefix:/service/ws/v2
     volumes:
     - /etc/localtime:/etc/localtime:ro
   messaging:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/messaging:1.0.5
     container_name: messaging
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/messaging
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/messagingService.MessagingService
     volumes:
     - /etc/localtime:/etc/localtime:ro
   import-export:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/import_export:1.2.0
     container_name: import-export
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.port=8000
-      - traefik.frontend.rule=PathPrefix:/api/v2/import_export
     volumes:
     - /etc/localtime:/etc/localtime:ro
   kms:
@@ -154,22 +117,10 @@ services:
       - KMS_WS_URI=ws://10.10.10.2:8888/kurento
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    labels:
-      - traefik.enable=true
-      - traefik.port=8000
-      - traefik.frontend.rule=Method:GET;PathPrefix:/api/v2/camera/webrtc;ReplacePath:/webrtc
   kvstore:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kvstore:1.1.0
     container_name: kvstore
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/kvstore
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/kvstore
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/kvstore:/db
@@ -177,22 +128,12 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestservice:1.0.1
     container_name: aging-test-service
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging/api
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     volumes:
       - /etc/localtime:/etc/localtime:ro
   aging-test-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestpages:1.0.0
     container_name: aging-test-pages
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=80
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/aging
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
   audiovideo:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.2
     container_name: audiovideo
@@ -218,14 +159,6 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.0
     container_name: audiovideogw
     restart: always
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/audiovideo
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/audiovideo
     volumes:
       - /etc/localtime:/etc/localtime:ro
 

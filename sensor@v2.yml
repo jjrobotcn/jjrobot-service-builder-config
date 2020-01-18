@@ -10,14 +10,6 @@ services:
       - hwdevice-head
     environment:
       - module=v2
-    labels:
-      - traefik.enable=true
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/sensorService.SensorService
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/sensor
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-sensor:
@@ -26,8 +18,3 @@ services:
     restart: always
     devices:
       - /dev/ttySensor:/dev/ttyHWDevice
-    labels:
-      - traefik.enable=true
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:sensor

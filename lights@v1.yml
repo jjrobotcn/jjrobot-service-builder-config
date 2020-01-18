@@ -11,14 +11,6 @@ services:
       - mouth_length=0
       - ears_length=0
       - hands_length=62
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/lights
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/lightsService.LightsService
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-head:
@@ -29,11 +21,6 @@ services:
       - COMPATIBLE=1
     devices:
       - /dev/ttyHead:/dev/ttyHWDevice
-    labels:
-      - traefik.enable=true
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/hwdevice;Host:head
   fileman-el:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
     container_name: fileman-el

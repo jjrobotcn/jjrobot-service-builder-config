@@ -8,13 +8,5 @@ services:
     privileged: true
     environment:
       - module=zkidm30
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/idcard
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/idCardService.IDCardService
     volumes:
       - /etc/localtime:/etc/localtime:ro

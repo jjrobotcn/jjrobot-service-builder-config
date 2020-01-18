@@ -9,13 +9,5 @@ services:
       - module=openwrt
       - device=10.10.10.1:80
       - p=andy4wifi
-    labels:
-      - traefik.enable=true
-      - traefik.http.port=9000
-      - traefik.http.frontend.rule=Method:GET,POST,PATCH,PUT,DELETE;PathPrefix:/api/v2/network
-      - traefik.http.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
-      - traefik.grpc.protocol=h2c
-      - traefik.grpc.port=8000
-      - traefik.grpc.frontend.rule=PathPrefix:/networkService.NetworkService
     volumes:
       - /etc/localtime:/etc/localtime:ro
