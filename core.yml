@@ -37,7 +37,7 @@ services:
     - jwt_timeout_sec=604800
     - PASSWORD=123456
     - HTTP_URI_VALID_PREFIXES=/api/,/daemon/api/,/service/ws
-    - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info,/api/v2/audiovideo/webrtc/rtc_peer_connection,/api/v2/audiovideo/webrtc/media
+    - HTTP_URI_VALID_IGNORED=/daemon/api/v1/info
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
