@@ -24,7 +24,7 @@ services:
     network_mode: host
     volumes:
     - /etc/localtime:/etc/localtime:ro
-  robotproxy:
+  robotproxyv2:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.1.0.alpha.1
     container_name: robotproxy
     restart: always
