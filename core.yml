@@ -47,12 +47,6 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  cors:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/cors-preflight:1.0.0
-    container_name: cors
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
   gateway:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.8.0
     container_name: gateway
