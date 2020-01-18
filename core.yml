@@ -70,11 +70,9 @@ services:
     container_name: gateway
     restart: always
     volumes:
-#    - /var/run/docker.sock:/var/run/docker.sock
-    - /var/lib/jjrobot/certs:/certs:ro
-#    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
-#    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
     - /etc/localtime:/etc/localtime:ro
+    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
+    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
     ports:
     - 80:80
     - 443:443
