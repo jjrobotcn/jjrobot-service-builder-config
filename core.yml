@@ -53,8 +53,8 @@ services:
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
-    - /var/lib/jjrobot/certs/fullchain.pem:/certs/cert.crt:ro
-    - /var/lib/jjrobot/certs/privkey.pem:/certs/cert.key:ro
+    - /var/lib/jjrobot/certs/fullchain.pem:/certs/fullchain.pem:ro
+    - /var/lib/jjrobot/certs/privkey.pem:/certs/privkey.pem:ro
     ports:
     - 80:80
     - 443:443
