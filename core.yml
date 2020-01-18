@@ -61,12 +61,6 @@ services:
     - 81:81
     - 8000:8000
     - 8001:8001
-  daemon-reverse-proxy:
-    container_name: daemon-reverse-proxy
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/daemon-reverse-proxy:1.0.0
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.10.1
     container_name: management-pages
