@@ -41,7 +41,7 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   api-doc:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.3.1-face-arc.alpha.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.3.1-face-arc.alpha.2
     container_name: api-doc
     restart: always
     volumes:
@@ -85,7 +85,7 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/daemon
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.10.0-face-arc.alpha.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.10.0-face-arc.alpha.2
     container_name: management-pages
     restart: always
     volumes:
