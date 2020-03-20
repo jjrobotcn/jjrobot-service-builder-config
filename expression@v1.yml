@@ -2,7 +2,7 @@ version: "3"
 
 services:
   expression:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.3.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.4.0-alpha.2
     container_name: expression
     restart: always
     depends_on:
