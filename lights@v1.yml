@@ -22,7 +22,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-head:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.2
     container_name: hwdevice-head
     restart: always
     environment:
