@@ -8,4 +8,4 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - LOG_LEVEL: debug
+      - LOG_LEVEL=0
