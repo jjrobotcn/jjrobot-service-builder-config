@@ -2,10 +2,11 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.0-bks.alpha.9
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.0-bks.alpha.11
     container_name: nav
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /home/boocax/server/repo:/mapRepo
     environment:
       - LOG_LEVEL=debug
