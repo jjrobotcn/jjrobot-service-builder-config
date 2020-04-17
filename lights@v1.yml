@@ -2,7 +2,7 @@ version: "3"
 
 services:
   lights:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.4.0-alpha
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:1.4.0
     container_name: lights
     restart: always
     depends_on:
