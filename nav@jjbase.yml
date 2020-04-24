@@ -12,7 +12,7 @@ services:
     environment:
       - module=jjbase
   hwdevice-nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
     container_name: hwdevice-nav
     restart: always
     devices:
