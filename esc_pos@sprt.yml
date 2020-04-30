@@ -5,9 +5,9 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/esc_pos:2.1.0
     container_name: esc_pos
     restart: always
+    privileged: true
     environment:
       - module=sprt
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    devices:
       - /dev/jjep:/dev/jjep

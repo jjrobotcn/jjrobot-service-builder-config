@@ -5,9 +5,9 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/xcode_scanner:1.0.2
     container_name: xcode_scanner
     restart: always
+    privileged: true
     environment:
       - module=nlfm25
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    devices:
       - /dev/ttyXcodeScanner:/dev/ttyXcodeScanner

@@ -17,9 +17,11 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
     container_name: hwdevice-head
     restart: always
+    privileged: true
     environment:
       - COMPATIBLE=1
-    devices:
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /dev/ttyHead:/dev/ttyHWDevice
   fileman-el:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
