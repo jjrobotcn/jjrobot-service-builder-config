@@ -5,11 +5,11 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:2.1.6
     container_name: speech
     restart: always
+    privileged: true
     environment:
       - module=aiuiv2
       - wifi_ssid=
       - wifi_pwd=
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    devices:
       - /dev/ttySpeech:/dev/ttyAiuiV2

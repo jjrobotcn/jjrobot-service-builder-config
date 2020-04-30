@@ -16,5 +16,7 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
     container_name: hwdevice-sensor
     restart: always
-    devices:
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /dev/ttySensor:/dev/ttyHWDevice
