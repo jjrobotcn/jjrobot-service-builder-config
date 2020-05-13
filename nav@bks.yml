@@ -2,21 +2,9 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.3.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.0-bks
     container_name: nav
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    environment:
-      - module=bks
-      - bks_controller_ip=10.10.10.2
-      - bks_controller_mac=b0:41:6f:00:01:2d
-      - bks_target_ip=10.10.10.2
-  bks-fs:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/filesystem:1.0.0
-    container_name: bks-fs
-    restart: always
-    volumes:
-      - /home/boocax:/home/boocax
-      - /etc/localtime:/etc/localtime:ro
-    command: ["-path", "/home/boocax"]
+      - /home/boocax/server/repo:/mapRepo
