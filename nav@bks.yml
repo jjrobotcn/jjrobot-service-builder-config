@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.0-bks
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.1-bks
     container_name: nav
     restart: always
     volumes:
