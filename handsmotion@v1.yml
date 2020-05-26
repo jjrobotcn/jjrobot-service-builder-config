@@ -2,20 +2,23 @@ version: "3"
 
 services:
   handsmotion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hands-motion:0.1.0-alpha4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hands-motion:0.1.0-alpha4.1
     container_name: handsmotion
     restart: always
     depends_on:
-      - hwdevice-motion
+      - hwdevice-arms-dev
+    environment:
+      - LOG_LEVEL=debug
+      - HWDEVICE=hwdevice-arms-dev:8000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  hwdevice-arms-dev:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
+    container_name: hwdevice-arms-dev
+    restart: always
+    privileged: true
     environment:
       - LOG_LEVEL=debug
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  hwdevice-motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
-    container_name: hwdevice-motion
-    restart: always
-    privileged: true
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyMotion:/dev/ttyHWDevice
+      - /dev/ttyUSB0:/dev/ttyHWDevice
