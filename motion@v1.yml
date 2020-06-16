@@ -20,7 +20,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
     container_name: hwdevice-motion
     restart: always
     privileged: true
