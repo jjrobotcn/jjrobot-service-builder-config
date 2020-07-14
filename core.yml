@@ -123,11 +123,13 @@ services:
     container_name: aging-test-pages
     restart: always
   audiovideo:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.3
     container_name: audiovideo
     network_mode: host
     restart: always
     environment:
+      - AV_PORT=6501
+      - AVGW_PORT=6502
       - RTSP_AV_MAIN=
       - RTAP_V_NAV=
       - V4L2_V_NAV=/dev/video0
@@ -144,9 +146,12 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
   audiovideogw:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.1
     container_name: audiovideogw
     restart: always
+    environment:
+      - AV_SERVICE=10.10.10.2:6501
+      - AVGW_SERVICE=10.10.10.2:6502
     volumes:
       - /etc/localtime:/etc/localtime:ro
 
