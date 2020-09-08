@@ -4,10 +4,11 @@ services:
       default: core.yml
   nav:
     module:
-      default: nav@bks.yml
+      default: nav@sl.yml
       bks: nav@bks.yml
       jjmgt: nav@jjmgt.yml
       jjbase: nav@jjbase.yml
+      sl: nav@sl.yml
   camera:
     module:
       default: camera@xm.yml
