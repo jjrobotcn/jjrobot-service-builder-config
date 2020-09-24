@@ -29,3 +29,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/nav/maps:/maps
+  hwdevice-nav:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
+    container_name: hwdevice-nav
+    restart: always
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyChas:/dev/ttyHWDevice
