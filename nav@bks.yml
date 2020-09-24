@@ -20,6 +20,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:gateway-1.0.1
     container_name: nav-gateway
     restart: always
+    depends_on:
+      - nav
     environment:
       - ENDPOINT=nav:8000
       - PORT=9000
