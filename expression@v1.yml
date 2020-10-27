@@ -9,6 +9,8 @@ services:
       - hwdevice-head
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    environment:
+      - GODEBUG=netdns=cgo
   hwdevice-head:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
     container_name: hwdevice-head

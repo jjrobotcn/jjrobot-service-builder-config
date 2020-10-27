@@ -8,6 +8,7 @@ services:
     depends_on:
       - hwdevice-motion
     environment:
+      - GODEBUG=netdns=cgo
       - module=v1
       - HEAD_X_AXIS_OFFSET=0
       - HEAD_X_AXIS_LEFT=75

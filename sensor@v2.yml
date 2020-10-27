@@ -9,6 +9,7 @@ services:
       - hwdevice-sensor
       - hwdevice-head
     environment:
+      - GODEBUG=netdns=cgo
       - module=v2
     volumes:
       - /etc/localtime:/etc/localtime:ro

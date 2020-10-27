@@ -6,6 +6,7 @@ services:
     container_name: camera
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - host=10.10.10.10
       - user=admin
       - pwd=

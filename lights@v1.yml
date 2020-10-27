@@ -8,6 +8,7 @@ services:
     depends_on:
       - hwdevice-head
     environment:
+      - GODEBUG=netdns=cgo
       - mouth_length=0
       - ears_length=0
       - hands_length=62

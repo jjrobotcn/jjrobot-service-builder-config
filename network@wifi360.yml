@@ -6,6 +6,7 @@ services:
     container_name: network
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - module=wifi360
       - device=10.10.10.1:80
       - p=andy4wifi

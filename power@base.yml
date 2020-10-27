@@ -9,6 +9,7 @@ services:
       - hwdevice-power
       - nav
     environment:
+      - GODEBUG=netdns=cgo
       - module=base
     volumes:
       - /etc/localtime:/etc/localtime:ro

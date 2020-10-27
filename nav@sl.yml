@@ -23,6 +23,7 @@ services:
     depends_on:
       - nav
     environment:
+      - GODEBUG=netdns=cgo
       - ENDPOINT=nav:8000
       - PORT=9000
       - MAPS_PATH=/maps

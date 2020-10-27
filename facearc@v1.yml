@@ -11,6 +11,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/faces-arc:/face_images
     environment:
+      - GODEBUG=netdns=cgo
       - DB_HOST=db
       - DB_PORT=27017
       - DB_USER=robotjj
