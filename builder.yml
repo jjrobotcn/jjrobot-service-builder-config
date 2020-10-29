@@ -29,6 +29,7 @@ services:
     module:
       default: lights@v1.yml
       v1: lights@v1.yml
+      v2: lights@v2.yml
   motion:
     module:
       default: motion@v1.yml

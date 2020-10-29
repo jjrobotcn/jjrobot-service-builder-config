@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  lights:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:2.0.0
+    container_name: lights
+    restart: always
+    depends_on:
+      - hwdevice-head
+    environment:
+      - GODEBUG=netdns=cgo
+      - MOUTH_RANGE=0,0
+      - EARS_RANGE=0,0
+      - HANDS_RANGE=0,62
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  hwdevice-head:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
+    container_name: hwdevice-head
+    restart: always
+    privileged: true
+    environment:
+      - COMPATIBLE=1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyACM0:/dev/ttyHWDevice
