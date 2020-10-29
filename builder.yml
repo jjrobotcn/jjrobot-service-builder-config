@@ -25,6 +25,7 @@ services:
     module:
       default: expression@v1.yml
       v1: expression@v1.yml
+      v2: expression@v2.yml
   lights:
     module:
       default: lights@v1.yml
