@@ -7,6 +7,7 @@ services:
     restart: always
     privileged: true
     environment:
+      - GODEBUG=netdns=cgo
       - module=zkidm30
     volumes:
       - /etc/localtime:/etc/localtime:ro

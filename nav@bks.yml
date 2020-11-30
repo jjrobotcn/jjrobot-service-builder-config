@@ -2,9 +2,11 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.1-bks
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:2.4.3-bks
     container_name: nav
     restart: always
+    environment:
+      - GODEBUG=netdns=cgo
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/boocax/server/repo:/mapRepo

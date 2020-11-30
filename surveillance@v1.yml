@@ -6,6 +6,7 @@ services:
     container_name: camera-recorder
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - DURATION=600
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -15,6 +16,7 @@ services:
     container_name: surveillance-storage
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - KEEP_DAYS=7
     volumes:
       - /etc/localtime:/etc/localtime:ro

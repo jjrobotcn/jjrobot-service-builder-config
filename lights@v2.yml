@@ -1,23 +1,26 @@
 version: "3"
 
 services:
-  sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.4.1
-    container_name: sensor
+  lights:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/lights:2.0.0
+    container_name: lights
     restart: always
     depends_on:
-      - hwdevice-sensor
       - hwdevice-head
     environment:
       - GODEBUG=netdns=cgo
-      - module=v2
+      - MOUTH_RANGE=0,0
+      - EARS_RANGE=0,0
+      - HANDS_RANGE=0,62
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  hwdevice-sensor:
+  hwdevice-head:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
-    container_name: hwdevice-sensor
+    container_name: hwdevice-head
     restart: always
     privileged: true
+    environment:
+      - COMPATIBLE=1
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttySensor:/dev/ttyHWDevice
+      - /dev/ttyACM0:/dev/ttyHWDevice

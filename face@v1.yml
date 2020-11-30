@@ -16,4 +16,5 @@ services:
     container_name: face-recognition-gateway
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - SERVICE_ENDPOINT=face-recognition:8000

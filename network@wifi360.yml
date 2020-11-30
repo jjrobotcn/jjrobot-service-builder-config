@@ -2,10 +2,11 @@ version: "3"
 
 services:
   network:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/network:1.3.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/network:1.3.6
     container_name: network
     restart: always
     environment:
+      - GODEBUG=netdns=cgo
       - module=wifi360
       - device=10.10.10.1:80
       - p=andy4wifi

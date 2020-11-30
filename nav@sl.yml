@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  nav:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:0.1.6-sl
+    container_name: nav
+    restart: always
+    environment:
+      - MAPS_PATH=/maps
+      - SDP_HOST=10.10.10.9
+      - SDP_PORT=1445
+      - MOVE_SPEED_MAX=1.0
+      - ANGULAR_SPEED_MAX=1.0
+      - PORT=8000
+      - LOG_LEVEL=trace
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/nav/maps:/maps
+  nav-gateway:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:gateway-1.0.1
+    container_name: nav-gateway
+    restart: always
+    depends_on:
+      - nav
+    environment:
+      - GODEBUG=netdns=cgo
+      - ENDPOINT=nav:8000
+      - PORT=9000
+      - MAPS_PATH=/maps
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/nav/maps:/maps
+  hwdevice-nav:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
+    container_name: hwdevice-nav
+    restart: always
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyChas:/dev/ttyHWDevice

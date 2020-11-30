@@ -8,6 +8,7 @@ services:
     depends_on:
       - hwdevice-motion
     environment:
+      - GODEBUG=netdns=cgo
       - module=v1
       - HEAD_X_AXIS_OFFSET=0
       - HEAD_X_AXIS_LEFT=75
@@ -20,7 +21,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-motion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.4
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
     container_name: hwdevice-motion
     restart: always
     privileged: true

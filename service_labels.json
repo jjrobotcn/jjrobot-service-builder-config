@@ -35,6 +35,10 @@
       "name": "nav",
       "label": "导航模块"
     },
+    "nav-gateway": {
+      "name": "nav-gateway",
+      "label": "导航模块网关"
+    },
     "redis": {
       "name": "redis",
       "label": "REDIS"

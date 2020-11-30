@@ -25,7 +25,7 @@ services:
     volumes:
     - /etc/localtime:/etc/localtime:ro
   robotproxyv2:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.1.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.1.3
     container_name: robotproxyv2
     restart: always
     network_mode: host
@@ -42,19 +42,20 @@ services:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs:/certs
   api-doc:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.4.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/api-doc:1.5.0
     container_name: api-doc
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.8.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.9.2
     container_name: gateway
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
     - /var/lib/jjrobot/certs/fullchain.pem:/certs/fullchain.pem:ro
     - /var/lib/jjrobot/certs/privkey.pem:/certs/privkey.pem:ro
+    - /var/run/docker.sock:/var/run/docker.sock
     ports:
     - 80:80
     - 443:443
@@ -62,7 +63,7 @@ services:
     - 8000:8000
     - 8001:8001
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.8.3-handsmotion.dev.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.12.3
     container_name: management-pages
     restart: always
     volumes:
@@ -123,11 +124,13 @@ services:
     container_name: aging-test-pages
     restart: always
   audiovideo:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo:1.0.4
     container_name: audiovideo
     network_mode: host
     restart: always
     environment:
+      - AV_PORT=6501
+      - AVGW_PORT=6502
       - RTSP_AV_MAIN=
       - RTAP_V_NAV=
       - V4L2_V_NAV=/dev/video0
@@ -144,9 +147,12 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
   audiovideogw:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/audiovideo-gw:1.0.1
     container_name: audiovideogw
     restart: always
+    environment:
+      - AV_SERVICE=10.10.10.2:6501
+      - AVGW_SERVICE=10.10.10.2:6502
     volumes:
       - /etc/localtime:/etc/localtime:ro
 

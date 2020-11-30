@@ -2,15 +2,18 @@ version: "3"
 
 services:
   expression:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:1.4.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/expression:2.0.0
     container_name: expression
     restart: always
     depends_on:
       - hwdevice-head
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/lib/jjrobot/expressionV2:/expressionV2
     environment:
       - GODEBUG=netdns=cgo
+      - ROOT=/expressionV2
+      - FRAME_DURATION=100
   hwdevice-head:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
     container_name: hwdevice-head
@@ -20,13 +23,4 @@ services:
       - COMPATIBLE=1
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyHead:/dev/ttyHWDevice
-  fileman-el:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/fileman:1.1.2
-    container_name: fileman-el
-    restart: always
-    volumes:
-      - /media/jjrobot-le-media:/storage
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      - ROOT=/storage
+      - /dev/ttyACM0:/dev/ttyHWDevice
