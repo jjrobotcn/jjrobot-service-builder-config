@@ -9,6 +9,7 @@ services:
       - hwdevice-arms-dev
     environment:
       - LOG_LEVEL=debug
+      - GODEBUG=netdns=cgo
       - HWDEVICE=hwdevice-arms-dev:8000
     volumes:
       - /etc/localtime:/etc/localtime:ro
