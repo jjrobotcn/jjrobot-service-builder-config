@@ -13,7 +13,11 @@
     },
     "hwdevice-motion": {
       "name": "hwdevice-motion",
-      "label": "运动模块硬件服务"
+      "label": "脖子关节硬件服务"
+    },
+    "hwdevice-arms-dev": {
+      "name": "hwdevice-arms-dev",
+      "label": "手臂硬件服务"
     },
     "hwdevice-head": {
       "name": "hwdevice-head",
@@ -29,7 +33,7 @@
     },
     "motion": {
       "name": "motion",
-      "label": "运动模块"
+      "label": "头部运动服务"
     },
     "nav": {
       "name": "nav",
@@ -190,5 +194,9 @@
     "robotproxyv2": {
       "name": "robotproxyv2",
       "label": "远程支持服务v2"
+    },
+    "handsmotion": {
+      "name": "handsmotion",
+      "label": "手臂运动服务"
     }
 }
