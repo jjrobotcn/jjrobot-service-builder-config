@@ -1,7 +1,7 @@
 version: "1"
 requirements:
   - file:
-      src: https://s.jj-robot.com/install/endl6_jjrobotctl
+      src: https://s.jj-robot.com/install/endl_jjrobotctl
       dst: /usr/local/bin/jjrobotctl
       x_perm: true
   - file:
