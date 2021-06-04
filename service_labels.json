@@ -15,8 +15,8 @@
       "name": "hwdevice-motion",
       "label": "脖子关节硬件服务"
     },
-    "hwdevice-arms-dev": {
-      "name": "hwdevice-arms-dev",
+    "hwdevice-arm": {
+      "name": "hwdevice-arm",
       "label": "手臂硬件服务"
     },
     "hwdevice-head": {

@@ -6,16 +6,16 @@ services:
     container_name: handsmotion
     restart: always
     depends_on:
-      - hwdevice-arms-dev
+      - hwdevice-arm
     environment:
       - LOG_LEVEL=debug
       - GODEBUG=netdns=cgo
-      - HWDEVICE=hwdevice-arms-dev:8000
+      - HWDEVICE=hwdevice-arm:8000
     volumes:
       - /etc/localtime:/etc/localtime:ro
-  hwdevice-arms-dev:
+  hwdevice-arm:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
-    container_name: hwdevice-arms-dev
+    container_name: hwdevice-arm
     restart: always
     privileged: true
     environment:
