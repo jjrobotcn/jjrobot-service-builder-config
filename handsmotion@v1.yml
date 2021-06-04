@@ -22,4 +22,4 @@ services:
       - LOG_LEVEL=debug
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyUSB0:/dev/ttyHWDevice
+      - /dev/ttyArm:/dev/ttyHWDevice
