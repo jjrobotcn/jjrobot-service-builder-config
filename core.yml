@@ -48,7 +48,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.9.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:3.0.0
     container_name: gateway
     restart: always
     volumes:
