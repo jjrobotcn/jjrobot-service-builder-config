@@ -8,7 +8,6 @@ services:
     depends_on:
       - hwdevice-arm
     environment:
-      - LOG_LEVEL=debug
       - GODEBUG=netdns=cgo
       - HWDEVICE=hwdevice-arm:8000
     volumes:
@@ -18,8 +17,6 @@ services:
     container_name: hwdevice-arm
     restart: always
     privileged: true
-    environment:
-      - LOG_LEVEL=debug
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /dev/ttyArm:/dev/ttyHWDevice
