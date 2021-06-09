@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sensor:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.5.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/sensor:2.5.1
     container_name: sensor
     restart: always
     depends_on:

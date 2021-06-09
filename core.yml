@@ -114,13 +114,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/kvstore:/db
   aging-test-service:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestservice:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestservice:1.2.0
     container_name: aging-test-service
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
   aging-test-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestpages:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/agingtestpages:1.2.0
     container_name: aging-test-pages
     restart: always
   audiovideo:
