@@ -2,7 +2,7 @@ version: "3"
 
 services:
   handsmotion:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hands-motion:0.2.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hands-motion:0.3.0_dev4
     container_name: handsmotion
     restart: always
     depends_on:
