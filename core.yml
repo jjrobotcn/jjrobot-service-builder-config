@@ -63,7 +63,7 @@ services:
     - 8000:8000
     - 8001:8001
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.13.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:2.13.1
     container_name: management-pages
     restart: always
     volumes:
