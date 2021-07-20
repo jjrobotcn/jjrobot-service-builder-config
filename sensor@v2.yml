@@ -7,6 +7,7 @@ services:
     restart: always
     depends_on:
       - hwdevice-sensor
+      - hwdevice-head
     environment:
       - GODEBUG=netdns=cgo
       - module=v2
@@ -17,6 +18,16 @@ services:
     container_name: hwdevice-sensor
     restart: always
     privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttySensor:/dev/ttyHWDevice
+  hwdevice-head:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
+    container_name: hwdevice-head
+    restart: always
+    privileged: true
+    environment:
+      SERIAL_RECV_TIMEOUT:  168h
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /dev/ttySensor:/dev/ttyHWDevice
