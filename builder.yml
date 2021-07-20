@@ -13,28 +13,6 @@ services:
     module:
       default: camera@xm.yml
       xm: camera@xm.yml
-  esc-pos:
-    module:
-      default: esc_pos@sprt.yml
-      sprt: esc_pos@sprt.yml
-  id-card:
-    module:
-      default: id_card@zkidm30.yml
-      zkidm30: id_card@zkidm30.yml
-  expression:
-    module:
-      default: expression@v1.yml
-      v1: expression@v1.yml
-      v2: expression@v2.yml
-  lights:
-    module:
-      default: lights@v1.yml
-      v1: lights@v1.yml
-      v2: lights@v2.yml
-  motion:
-    module:
-      default: motion@v1.yml
-      v1: motion@v1.yml
   network:
     module:
       default: network@wifi360.yml
@@ -52,10 +30,6 @@ services:
     module:
       default: speech@aiuiv2.yml
       aiuiv2: speech@aiuiv2.yml
-  xcode-scanner:
-    module:
-      default: xcode_scanner@nlfm25.yml
-      nlfm25: xcode_scanner@nlfm25.yml
   surveillance:
     module:
       default: surveillance@v1.yml
@@ -64,7 +38,4 @@ services:
     module:
       default: facearc@v1.yml
       v1: facearc@v1.yml
-  handsmotion:
-    module:
-      default: handsmotion@v1.yml
-      v1: handsmotion@v1.yml
+
