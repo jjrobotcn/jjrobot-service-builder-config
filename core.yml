@@ -48,7 +48,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:3.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:3.0.2_dev1
     container_name: gateway
     restart: always
     volumes:
@@ -62,6 +62,7 @@ services:
     - 81:81
     - 8000:8000
     - 8001:8001
+    - 9000:9001
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:3.0.3
     container_name: management-pages

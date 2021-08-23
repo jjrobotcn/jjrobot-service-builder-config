@@ -68,3 +68,7 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  temp_measure:
+    module:
+      default: temp_measure@dn95.yml
+      dn95: temp_measure@dn95.yml
