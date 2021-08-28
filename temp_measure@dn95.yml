@@ -14,5 +14,7 @@ services:
     container_name: temp-measure-pages
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure-pages:1.0.0_dev5
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure-pages:1.0.0_dev6
+    ports:
+    - 9002:80
     restart: always

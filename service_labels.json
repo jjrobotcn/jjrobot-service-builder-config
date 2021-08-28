@@ -198,5 +198,13 @@
     "handsmotion": {
       "name": "handsmotion",
       "label": "手臂运动服务"
+    },
+    "temp-measure": {
+      "name": "temp-measure",
+      "label": "测温服务"
+    },
+    "temp-measure-pages": {
+      "name": "temp-measure-pages",
+      "label": "测温交互页面"
     }
 }
