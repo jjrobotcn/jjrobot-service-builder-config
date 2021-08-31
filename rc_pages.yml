@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  rc-pages:
+    container_name: rc-pages
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/rc-pages:1.0.0
+    ports:
+      - 9003:80/tcp
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

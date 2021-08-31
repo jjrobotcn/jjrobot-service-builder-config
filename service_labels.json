@@ -198,5 +198,9 @@
     "handsmotion": {
       "name": "handsmotion",
       "label": "手臂运动服务"
+    },
+    "rc-pages": {
+      "name": "rc-pages",
+      "label": "遥控网页"
     }
 }

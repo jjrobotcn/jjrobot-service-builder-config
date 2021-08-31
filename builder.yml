@@ -68,3 +68,6 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  rc-pages:
+    module:
+      default: rc_pages.yml
