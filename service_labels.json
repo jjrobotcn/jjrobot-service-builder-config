@@ -198,5 +198,9 @@
     "handsmotion": {
       "name": "handsmotion",
       "label": "手臂运动服务"
+    },
+    "app_admin_pages": {
+      "name": "app-admin-pages",
+      "label": "app管理界面"
     }
 }
