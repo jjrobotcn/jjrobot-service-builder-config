@@ -2,7 +2,7 @@ version: "3"
 
 services:
   face-recognition:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:1.2.3-arc
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:1.2.4-arc
     container_name: face-recognition
     restart: always
     depends_on:
@@ -21,4 +21,4 @@ services:
       - DEFAULT_ON_FACE_DETECT_INTERVAL=300ms
       - DEFAULT_ON_FACE_SET_FACE_DETECT_INTERVAL=300ms
       - DEFAULT_ON_FACE_SET_FACE_DETECT_CONFIDENCE_MIN=0.6
-    mac_address: fc:aa:14:d7:cc:38
+    mac_address: fc:aa:14:d7:cd:33

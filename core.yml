@@ -17,13 +17,6 @@ services:
     restart: always
     volumes:
     - /etc/localtime:/etc/localtime:ro
-  frpc:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/frpc:1.1.0
-    container_name: frpc
-    restart: always
-    network_mode: host
-    volumes:
-    - /etc/localtime:/etc/localtime:ro
   robotproxyv2:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/robotproxyv2:1.1.3
     container_name: robotproxyv2
@@ -69,7 +62,7 @@ services:
     - 8000:8000
     - 8001:8001
   management-pages:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:3.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:3.0.４
     container_name: management-pages
     restart: always
     volumes:
