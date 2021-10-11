@@ -186,5 +186,9 @@
     "robotproxyv2": {
       "name": "robotproxyv2",
       "label": "远程支持服务v2"
+    },
+    "app-admin-pages": {
+      "name": "app-admin-pages",
+      "label": "app管理界面"
     }
 }

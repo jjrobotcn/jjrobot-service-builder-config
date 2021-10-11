@@ -40,8 +40,14 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
+  app-admin-pages:
+    container_name: app-admin-pages
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/app-admin-pages:1.0.1
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
   gateway:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:2.9.2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/gateway:3.0.4
     container_name: gateway
     restart: always
     volumes:
