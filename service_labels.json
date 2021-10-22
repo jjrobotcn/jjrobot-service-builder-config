@@ -199,6 +199,10 @@
       "name": "handsmotion",
       "label": "手臂运动服务"
     },
+    "app-admin-pages": {
+      "name": "app-admin-pages",
+      "label": "app管理界面"
+    },
     "rc-pages": {
       "name": "rc-pages",
       "label": "遥控网页"
