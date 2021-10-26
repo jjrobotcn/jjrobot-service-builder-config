@@ -42,7 +42,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
   app-admin-pages:
     container_name: app-admin-pages
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/app-admin-pages:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/app-admin-pages:1.0.3_mul_lang_dev1
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
