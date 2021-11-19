@@ -61,6 +61,7 @@ services:
     - 81:81
     - 8000:8000
     - 8001:8001
+    - 9001:9001
   management-pages:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/management-pages:3.0.5
     container_name: management-pages
