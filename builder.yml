@@ -36,10 +36,6 @@ services:
     module:
       default: power@base.yml
       base: power@base.yml
-  sensor:
-    module:
-      default: sensor@v2.yml
-      v2: sensor@v2.yml
   speech:
     module:
       default: speech@aiuiv2.yml
