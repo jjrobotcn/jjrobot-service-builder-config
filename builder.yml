@@ -2,6 +2,13 @@ services:
   core:
     module:
       default: core.yml
+  nav:
+    module:
+      default: nav@sl.yml
+      bks: nav@bks.yml
+      jjmgt: nav@jjmgt.yml
+      jjbase: nav@jjbase.yml
+      sl: nav@sl.yml
   camera:
     module:
       default: camera@xm.yml
@@ -11,6 +18,11 @@ services:
       default: expression@v1.yml
       v1: expression@v1.yml
       v2: expression@v2.yml
+  lights:
+    module:
+      default: lights@v1.yml
+      v1: lights@v1.yml
+      v2: lights@v2.yml
   motion:
     module:
       default: motion@v1.yml
@@ -24,6 +36,10 @@ services:
     module:
       default: power@base.yml
       base: power@base.yml
+  sensor:
+    module:
+      default: sensor@v2.yml
+      v2: sensor@v2.yml
   speech:
     module:
       default: speech@aiuiv2.yml
