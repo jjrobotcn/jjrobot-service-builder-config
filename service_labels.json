@@ -59,10 +59,6 @@
       "name": "auth",
       "label": "AUTH"
     },
-    "frpc": {
-      "name": "frpc",
-      "label": "远程支持服务"
-    },
     "gateway": {
       "name": "gateway",
       "label": "网关服务"
@@ -198,6 +194,10 @@
     "handsmotion": {
       "name": "handsmotion",
       "label": "手臂运动服务"
+    },
+    "app-admin-pages": {
+      "name": "app-admin-pages",
+      "label": "app管理界面"
     },
     "temp-measure": {
       "name": "temp-measure",
