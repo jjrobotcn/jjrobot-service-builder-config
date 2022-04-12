@@ -31,10 +31,10 @@ services:
       default: lights@v1.yml
       v1: lights@v1.yml
       v2: lights@v2.yml
-  motion:
+  waistmotion:
     module:
-      default: motion@v1.yml
-      v1: motion@v1.yml
+      default: waistmotion@v1.yml
+      v1: waistmotion@v1.yml
   network:
     module:
       default: network@wifi360.yml
