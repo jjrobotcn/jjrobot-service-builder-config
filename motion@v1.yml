@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  motion:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/motion:1.3.0
+    container_name: motion
+    restart: always
+    depends_on:
+      - hwdevice-motion
+    environment:
+      - GODEBUG=netdns=cgo
+      - module=v1
+      - HEAD_X_AXIS_OFFSET=0
+      - HEAD_X_AXIS_LEFT=75
+      - HEAD_X_AXIS_CENTER=135
+      - HEAD_X_AXIS_RIGHT=195
+      - HEAD_Y_AXIS_OFFSET=0
+      - HEAD_Y_AXIS_TOP=120
+      - HEAD_Y_AXIS_MIDDLE=135
+      - HEAD_Y_AXIS_BOTTOM=150
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  hwdevice-motion:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/hwdevice:1.0.5
+    container_name: hwdevice-motion
+    restart: always
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyMotion:/dev/ttyHWDevice
