@@ -1,3 +1,5 @@
+version: "3"
+
 services:
   waistmotion:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/waist-motion:1.0.0_dev1
