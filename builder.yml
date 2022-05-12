@@ -35,6 +35,10 @@ services:
     module:
       default: motion@v1.yml
       v1: motion@v1.yml
+  chairjoint:
+    module:
+      default: chairjoint@v1.yml
+      v1: chairjoint@v1.yml
   network:
     module:
       default: network@wifi360.yml
