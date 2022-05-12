@@ -191,16 +191,12 @@
       "name": "robotproxyv2",
       "label": "远程支持服务v2"
     },
-    "handsmotion": {
-      "name": "handsmotion",
-      "label": "手臂运动服务"
-    },
     "app-admin-pages": {
       "name": "app-admin-pages",
       "label": "app管理界面"
     },
     "chairjoint": {
-    "name": "chairjoint",
-    "label": "轮椅关节"
+      "name": "chairjoint",
+      "label": "轮椅关节"
   }
 }
