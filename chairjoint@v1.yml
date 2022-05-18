@@ -2,7 +2,7 @@ version: "3"
 
 services:
   chairjoint:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/chair_joint:1.0.0_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/chair_joint:1.0.4
     container_name: chairjoint
     restart: always
     privileged: true
@@ -11,3 +11,9 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /dev/ttyArm:/dev/ttyHWDevice
+  smart-chair-pages:
+    container_name: smart-chair-pages
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/smart-chair-pages:1.0.4
+    ports:
+      - 9009:80
+    restart: always

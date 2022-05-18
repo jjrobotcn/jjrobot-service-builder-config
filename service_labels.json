@@ -1,202 +1,207 @@
 {
-    "jjrobotd": {
-      "name": "jjrobotd",
-      "label": "Daemon管理服务"
-    },
-    "bks-fs": {
-      "name": "bks-fs",
-      "label": "无线导航文件服务"
-    },
-    "hwdevice-sensor": {
-      "name": "hwdevice-sensor",
-      "label": "传感器模块硬件服务"
-    },
-    "hwdevice-motion": {
-      "name": "hwdevice-motion",
-      "label": "脖子关节硬件服务"
-    },
-    "hwdevice-arm": {
-      "name": "hwdevice-arm",
-      "label": "手臂硬件服务"
-    },
-    "hwdevice-head": {
-      "name": "hwdevice-head",
-      "label": "灯光表情模块硬件服务"
-    },
-    "hwdevice-power": {
-      "name": "hwdevice-power",
-      "label": "电源模块硬件服务"
-    },
-    "hwdevice-nav": {
-      "name": "hwdevice-nav",
-      "label": "导航模块硬件服务"
-    },
-    "motion": {
-      "name": "motion",
-      "label": "头部运动服务"
-    },
-    "nav": {
-      "name": "nav",
-      "label": "导航模块"
-    },
-    "nav-gateway": {
-      "name": "nav-gateway",
-      "label": "导航模块网关"
-    },
-    "redis": {
-      "name": "redis",
-      "label": "REDIS"
-    },
-    "robot-redis": {
-      "name": "redis",
-      "label": "REDIS"
-    },
-    "db": {
-      "name": "db",
-      "label": "DATABASE"
-    },
-    "auth": {
-      "name": "auth",
-      "label": "AUTH"
-    },
-    "gateway": {
-      "name": "gateway",
-      "label": "网关服务"
-    },
-    "gateway-envoy": {
-      "name": "gateway-envoy",
-      "label": "ENVOY网关服务"
-    },
-    "ws_gateway": {
-      "name": "ws_gateway",
-      "label": "WEBSOCKET网关服务"
-    },
-    "id_card": {
-      "name": "id_card",
-      "label": "身份证模块"
-    },
-    "network": {
-      "name": "network",
-      "label": "网络模块"
-    },
-    "power": {
-      "name": "power",
-      "label": "电源模块"
-    },
-    "fileman-el": {
-      "name": "fileman-el",
-      "label": "表情灯光文件服务"
-    },
-    "expression": {
-      "name": "expression",
-      "label": "表情模块"
-    },
-    "lights": {
-      "name": "lights",
-      "label": "灯光模块"
-    },
-    "esc_pos": {
-      "name": "esc_pos",
-      "label": "小票打印模块"
-    },
-    "camera": {
-      "name": "camera",
-      "label": "摄像头模块"
-    },
-    "webrtc-server": {
-      "name": "webrtc-server",
-      "label": "WebRTC监控"
-    },
-    "kms": {
-      "name": "kms",
-      "label": "KMS"
-    },
-    "messaging": {
-      "name": "messaging",
-      "label": "消息模块"
-    },
-    "xcode_scanner": {
-      "name": "xcode_scanner",
-      "label": "扫码模块"
-    },
-    "import-export": {
-      "name": "import-export",
-      "label": "导入导出模块"
-    },
-    "speech": {
-      "name": "speech",
-      "label": "语音模块"
-    },
-    "sensor": {
-      "name": "sensor",
-      "label": "传感器模块"
-    },
-    "face-recognition": {
-      "name": "face-recognition",
-      "label": "人脸识别模块"
-    },
-    "face-recognition-gateway": {
-      "name": "face-recognition-gateway",
-      "label": "人脸识别模块网关"
-    },
-    "management-pages": {
-      "name": "management-pages",
-      "label": "开发管理平台页面"
-    },
-    "daemon-reverse-proxy": {
-      "name": "daemon-reverse-proxy",
-      "label": "DaemonReverseProxy"
-    },
-    "api-doc": {
-      "name": "api-doc",
-      "label": "API文档"
-    },
-    "cors": {
-      "name": "cors",
-      "label": "CORS"
-    },
-    "camera-recorder": {
-      "name": "camera-recorder",
-      "label": "CameraRecorder"
-    },
-    "surveillance-storage": {
-      "name": "surveillance-storage",
-      "label": "监控存储服务"
-    },
-    "camera-ntp-sync": {
-      "name": "camera-ntp-sync",
-      "label": "监控时间同步"
-    },
-    "kvstore": {
-      "name": "kvstore",
-      "label": "KVStore"
-    },
-    "aging-test-service": {
-      "name": "aging-test-service",
-      "label": "ats"
-    },
-    "aging-test-pages": {
-      "name": "aging-test-pages",
-      "label": "atp"
-    },
-    "audiovideo": {
-      "name": "audiovideo",
-      "label": "av"
-    },
-    "audiovideogw": {
-      "name": "audiovideogw",
-      "label": "avgw"
-    },
-    "robotproxyv2": {
-      "name": "robotproxyv2",
-      "label": "远程支持服务v2"
-    },
-    "app-admin-pages": {
-      "name": "app-admin-pages",
-      "label": "app管理界面"
-    },
-    "chairjoint": {
-      "name": "chairjoint",
-      "label": "轮椅关节"
+  "jjrobotd": {
+    "name": "jjrobotd",
+    "label": "Daemon管理服务"
+  },
+  "bks-fs": {
+    "name": "bks-fs",
+    "label": "无线导航文件服务"
+  },
+  "hwdevice-sensor": {
+    "name": "hwdevice-sensor",
+    "label": "传感器模块硬件服务"
+  },
+  "hwdevice-motion": {
+    "name": "hwdevice-motion",
+    "label": "脖子关节硬件服务"
+  },
+  "hwdevice-arm": {
+    "name": "hwdevice-arm",
+    "label": "手臂硬件服务"
+  },
+  "hwdevice-head": {
+    "name": "hwdevice-head",
+    "label": "灯光表情模块硬件服务"
+  },
+  "hwdevice-power": {
+    "name": "hwdevice-power",
+    "label": "电源模块硬件服务"
+  },
+  "hwdevice-nav": {
+    "name": "hwdevice-nav",
+    "label": "导航模块硬件服务"
+  },
+  "motion": {
+    "name": "motion",
+    "label": "头部运动服务"
+  },
+  "nav": {
+    "name": "nav",
+    "label": "导航模块"
+  },
+  "nav-gateway": {
+    "name": "nav-gateway",
+    "label": "导航模块网关"
+  },
+  "redis": {
+    "name": "redis",
+    "label": "REDIS"
+  },
+  "robot-redis": {
+    "name": "redis",
+    "label": "REDIS"
+  },
+  "db": {
+    "name": "db",
+    "label": "DATABASE"
+  },
+  "auth": {
+    "name": "auth",
+    "label": "AUTH"
+  },
+  "gateway": {
+    "name": "gateway",
+    "label": "网关服务"
+  },
+  "gateway-envoy": {
+    "name": "gateway-envoy",
+    "label": "ENVOY网关服务"
+  },
+  "ws_gateway": {
+    "name": "ws_gateway",
+    "label": "WEBSOCKET网关服务"
+  },
+  "id_card": {
+    "name": "id_card",
+    "label": "身份证模块"
+  },
+  "network": {
+    "name": "network",
+    "label": "网络模块"
+  },
+  "power": {
+    "name": "power",
+    "label": "电源模块"
+  },
+  "fileman-el": {
+    "name": "fileman-el",
+    "label": "表情灯光文件服务"
+  },
+  "expression": {
+    "name": "expression",
+    "label": "表情模块"
+  },
+  "lights": {
+    "name": "lights",
+    "label": "灯光模块"
+  },
+  "esc_pos": {
+    "name": "esc_pos",
+    "label": "小票打印模块"
+  },
+  "camera": {
+    "name": "camera",
+    "label": "摄像头模块"
+  },
+  "webrtc-server": {
+    "name": "webrtc-server",
+    "label": "WebRTC监控"
+  },
+  "kms": {
+    "name": "kms",
+    "label": "KMS"
+  },
+  "messaging": {
+    "name": "messaging",
+    "label": "消息模块"
+  },
+  "xcode_scanner": {
+    "name": "xcode_scanner",
+    "label": "扫码模块"
+  },
+  "import-export": {
+    "name": "import-export",
+    "label": "导入导出模块"
+  },
+  "speech": {
+    "name": "speech",
+    "label": "语音模块"
+  },
+  "sensor": {
+    "name": "sensor",
+    "label": "传感器模块"
+  },
+  "face-recognition": {
+    "name": "face-recognition",
+    "label": "人脸识别模块"
+  },
+  "face-recognition-gateway": {
+    "name": "face-recognition-gateway",
+    "label": "人脸识别模块网关"
+  },
+  "management-pages": {
+    "name": "management-pages",
+    "label": "开发管理平台页面"
+  },
+  "daemon-reverse-proxy": {
+    "name": "daemon-reverse-proxy",
+    "label": "DaemonReverseProxy"
+  },
+  "api-doc": {
+    "name": "api-doc",
+    "label": "API文档"
+  },
+  "cors": {
+    "name": "cors",
+    "label": "CORS"
+  },
+  "camera-recorder": {
+    "name": "camera-recorder",
+    "label": "CameraRecorder"
+  },
+  "surveillance-storage": {
+    "name": "surveillance-storage",
+    "label": "监控存储服务"
+  },
+  "camera-ntp-sync": {
+    "name": "camera-ntp-sync",
+    "label": "监控时间同步"
+  },
+  "kvstore": {
+    "name": "kvstore",
+    "label": "KVStore"
+  },
+  "aging-test-service": {
+    "name": "aging-test-service",
+    "label": "ats"
+  },
+  "aging-test-pages": {
+    "name": "aging-test-pages",
+    "label": "atp"
+  },
+  "audiovideo": {
+    "name": "audiovideo",
+    "label": "av"
+  },
+  "audiovideogw": {
+    "name": "audiovideogw",
+    "label": "avgw"
+  },
+  "robotproxyv2": {
+    "name": "robotproxyv2",
+    "label": "远程支持服务v2"
+  },
+  "app-admin-pages": {
+    "name": "app-admin-pages",
+    "label": "app管理界面"
+  },
+  "chairjoint": {
+    "name": "chairjoint",
+    "label": "轮椅关节"
+  },
+  "smart-chair-pages": {
+    "name": "smart-chair-pages",
+    "label":"轮椅控制界面"
   }
+}
 }
