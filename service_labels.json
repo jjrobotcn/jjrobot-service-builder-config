@@ -202,5 +202,13 @@
   "smart-chair-pages": {
     "name": "smart-chair-pages",
     "label":"轮椅控制界面"
+  },
+  "temp-measure": {
+    "name": "temp-measure",
+    "label": "测温服务"
+  },
+  "temp-measure-pages": {
+    "name": "temp-measure-pages",
+    "label": "测温交互页面"
   }
 }
