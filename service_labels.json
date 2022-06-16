@@ -195,14 +195,6 @@
     "name": "app-admin-pages",
     "label": "app管理界面"
   },
-  "chairjoint": {
-    "name": "chairjoint",
-    "label": "轮椅关节"
-  },
-  "smart-chair-pages": {
-    "name": "smart-chair-pages",
-    "label":"轮椅控制界面"
-  },
   "temp-measure": {
     "name": "temp-measure",
     "label": "测温服务"
@@ -210,5 +202,13 @@
   "temp-measure-pages": {
     "name": "temp-measure-pages",
     "label": "测温交互页面"
+  },
+  "finger-cure": {
+    "name": "finger-cure",
+    "label": "手指康复服务"
+  },
+  "finger-cure-pages": {
+    "name": "finger-cure-pages",
+    "label": "手指康复页面"
   }
 }

@@ -27,10 +27,10 @@ services:
     module:
       default: motion@v1.yml
       v1: motion@v1.yml
-  chairjoint:
+  fingercure:
     module:
-      default: chairjoint@v1.yml
-      v1: chairjoint@v1.yml
+      default: fingercure@ys.yml
+      v1: fingercure@ys.yml
   network:
     module:
       default: network@wifi360.yml
