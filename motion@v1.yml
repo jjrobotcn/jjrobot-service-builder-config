@@ -27,4 +27,4 @@ services:
     privileged: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyMotion:/dev/ttyHWDevice
+      - /dev/ttyHWDevice:/dev/ttyHWDevice

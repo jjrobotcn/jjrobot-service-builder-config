@@ -10,7 +10,7 @@ services:
       - GODEBUG=netdns=cgo
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyArm:/dev/ttyHWDevice
+      - /dev/ttyMotion:/dev/ttyHWDevice
   finger-cure-pages:
     container_name: finger-cure-pages
     volumes:

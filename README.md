@@ -94,3 +94,8 @@ requirements:
 上述script中描述了3个依赖
 - file类型将由src下载内容至dst, 若x_perm==true将更新权限为0744，否则0644
 - image类型将更新一个服务镜像并更名为jjrobot/jjrobotd
+
+批量删除tag
+git show-ref --tag | awk '/chair[2 3 4 5 6 7 8 9 ]/ {print ":"$2}' | xargs git push origin
+单个tag
+git push origin :refs/tags/v2.1.0_smart_chair1
