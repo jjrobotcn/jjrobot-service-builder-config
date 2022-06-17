@@ -3,7 +3,7 @@ version: "3"
 services:
   temp-measure:
     container_name: temp-measure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure:1.0.2_smart_chair_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure:1.0.3_smart_chair
     environment:
       - LOG_LEVEL=debug
     mac_address: fc:aa:14:d7:cd:33
