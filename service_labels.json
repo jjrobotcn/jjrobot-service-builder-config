@@ -203,9 +203,13 @@
     "name": "temp-measure-pages",
     "label": "测温交互页面"
   },
-  "finger-cure": {
-    "name": "finger-cure",
-    "label": "手指康复服务"
+  "left-finger-cure": {
+    "name": "left-finger-cure",
+    "label": "左手指康复服务"
+  },
+  "right-finger-cure": {
+    "name": "right-finger-cure",
+    "label": "右手指康复服务"
   },
   "finger-cure-pages": {
     "name": "finger-cure-pages",
