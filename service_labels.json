@@ -211,6 +211,10 @@
     "name": "right-finger-cure",
     "label": "右手指康复服务"
   },
+  "brain_ctl": {
+    "name": "brain_ctl",
+    "label": "脑机控制"
+  },
   "finger-cure-pages": {
     "name": "finger-cure-pages",
     "label": "手指康复页面"

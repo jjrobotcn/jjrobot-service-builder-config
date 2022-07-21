@@ -3,7 +3,7 @@ version: "3"
 services:
   left-finger-cure:
     container_name: left-finger-cure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.0_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.0_dev6
     restart: always
     privileged: true
     environment:
@@ -13,7 +13,7 @@ services:
       - /dev/ttyMotion:/dev/ttyHWDevice
   right-finger-cure:
     container_name: right-finger-cure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.0_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.0_dev6
     restart: always
     privileged: true
     environment:
@@ -21,6 +21,16 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /dev/ttyChas:/dev/ttyHWDevice
+  brain_ctl:
+    container_name: brain_ctl
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/brain_ctl:1.0.0_dev1
+    restart: always
+    privileged: true
+    environment:
+      - GODEBUG=netdns=cgo
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyUSB3:/dev/ttyHWDevice
   finger-cure-pages:
     container_name: finger-cure-pages
     volumes:
