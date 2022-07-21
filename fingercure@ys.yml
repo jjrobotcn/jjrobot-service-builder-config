@@ -10,7 +10,7 @@ services:
       - GODEBUG=netdns=cgo
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyMotion:/dev/ttyHWDevice
+      - /dev/ttyChas:/dev/ttyHWDevice
   right-finger-cure:
     container_name: right-finger-cure
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.0_dev6
@@ -20,14 +20,16 @@ services:
       - GODEBUG=netdns=cgo
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyChas:/dev/ttyHWDevice
+      - /dev/ttyMotion:/dev/ttyHWDevice
   brain_ctl:
     container_name: brain_ctl
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/brain_ctl:1.0.0_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/brain_ctl:1.0.0_dev3
     restart: always
     privileged: true
     environment:
       - GODEBUG=netdns=cgo
+      - MIN: 48
+      - MAX: 52
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /dev/ttyUSB3:/dev/ttyHWDevice
