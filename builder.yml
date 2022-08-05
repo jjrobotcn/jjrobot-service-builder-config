@@ -56,8 +56,3 @@ services:
     module:
       default: facearc@v1.yml
       v1: facearc@v1.yml
-  temp_measure:
-    module:
-      default: temp_measure@dn95.yml
-      dn95: temp_measure@dn95.yml
-
