@@ -40,7 +40,7 @@ services:
       - MAX: 28,38,48,58,100
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyUSB3:/dev/ttyHWDevice
+      - /dev/ttyBrain:/dev/ttyHWDevice:rw
   finger-cure-pages:
     container_name: finger-cure-pages
     volumes:
