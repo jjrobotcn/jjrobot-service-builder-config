@@ -3,7 +3,7 @@ version: "3"
 services:
   left-finger-cure:
     container_name: left-finger-cure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.2
     restart: always
     privileged: true
     environment:
@@ -17,7 +17,7 @@ services:
       - /dev/ttyChas:/dev/ttyHWDevice
   right-finger-cure:
     container_name: right-finger-cure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/finger-cure:1.0.2
     restart: always
     privileged: true
     environment:
