@@ -17,7 +17,7 @@ services:
       - HEAD_Y_AXIS_OFFSET=0
       - HEAD_Y_AXIS_TOP=120
       - HEAD_Y_AXIS_MIDDLE=135
-      - HEAD_Y_AXIS_BOTTOM=150
+      - HEAD_Y_AXIS_BOTTOM=1501
     volumes:
       - /etc/localtime:/etc/localtime:ro
   hwdevice-motion:
