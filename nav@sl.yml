@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:1.0.3_sl
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:1.0.5_sl
     container_name: nav
     restart: always
     environment:
@@ -12,7 +12,8 @@ services:
       - MOVE_SPEED_MAX=1.0
       - ANGULAR_SPEED_MAX=1.0
       - PORT=8000
-      - LOG_LEVEL=trace
+      - LOG_LEVEL=debug
+      - ADD_TIME_OUT=60
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/lib/jjrobot/nav/maps:/maps
