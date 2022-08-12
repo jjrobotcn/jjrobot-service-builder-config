@@ -3,10 +3,10 @@ version: "3"
 services:
   temp-measure:
     container_name: temp-measure
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure:1.0.3_smart_chair
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure:1.0.4_smart_chair
     environment:
       - LOG_LEVEL=info
-    mac_address: fc:aa:14:d7:cd:33
+    mac_address: 60:6d:c7:32:27:ed
     volumes:
       - /etc/localtime:/etc/localtime:ro
     restart: always
