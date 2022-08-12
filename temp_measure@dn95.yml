@@ -5,7 +5,7 @@ services:
     container_name: temp-measure
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/temp-measure:1.0.3
     environment:
-      - LOG_LEVEL=debug
+      - LOG_LEVEL=info
     mac_address: fc:aa:14:d7:cd:33
     volumes:
       - /etc/localtime:/etc/localtime:ro
