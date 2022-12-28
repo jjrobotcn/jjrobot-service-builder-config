@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  third-party-nlp:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/third_party_nlp:1.0.0_jxy
+    container_name: third-party-nlp
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

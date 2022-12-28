@@ -68,3 +68,7 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  third-party-nlp:
+    module:
+      default: nlp@qidaixue.yml
+      v1: nlp@qidaixue.yml
