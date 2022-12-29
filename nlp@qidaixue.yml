@@ -4,6 +4,8 @@ services:
   third-party-nlp:
     image: registry.cn-shenzhen.aliyuncs.com/jjrobot/third_party_nlp:1.0.0_jxy
     container_name: third-party-nlp
+    extra_hosts:
+      - "cloud.jj-robot.com:47.113.39.233"
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
