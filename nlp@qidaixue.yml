@@ -2,7 +2,7 @@ version: "3"
 
 services:
   third-party-nlp:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/third_party_nlp:1.0.0_jxy
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/third_party_nlp:1.0.1_jxy
     container_name: third-party-nlp
     extra_hosts:
       - "cloud.jj-robot.com:47.113.39.233"
