@@ -50,9 +50,8 @@ services:
       v2: sensor@v2.yml
   speech:
     module:
-      default: speech@baidu.yml
+      default: speech@aiuiv2.yml
       aiuiv2: speech@aiuiv2.yml
-      baidu: speech@baidu.yml
   xcode-scanner:
     module:
       default: xcode_scanner@nlfm25.yml

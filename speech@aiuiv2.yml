@@ -2,15 +2,17 @@ version: "3"
 
 services:
   speech:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:3.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jj-robot/speech:4.0.0_baidu_dev1
     container_name: speech
     restart: always
     privileged: true
     environment:
+      - MIC_NAME= bothlent
+      - LOG_LEVEL= debug
       - GODEBUG=netdns=cgo
       - module=aiuiv2
       - wifi_ssid=
       - wifi_pwd=
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttySpeech:/dev/ttyAiuiV2
+      - /dev/snd:/dev/snd
