@@ -198,5 +198,9 @@
     "app-admin-pages": {
       "name": "app-admin-pages",
       "label": "app管理界面"
-    }
+    },
+   "chat": {
+    "name": "chat",
+    "label": "语音对话"
+  }
 }

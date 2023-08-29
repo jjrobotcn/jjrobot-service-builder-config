@@ -50,8 +50,9 @@ services:
       v2: sensor@v2.yml
   speech:
     module:
-      default: speech@aiuiv2.yml
+      default: speech@baidu.yml
       aiuiv2: speech@aiuiv2.yml
+      baidu: speech@baidu.yml
   xcode-scanner:
     module:
       default: xcode_scanner@nlfm25.yml
@@ -68,3 +69,7 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  chat:
+    module:
+      default: chat@v1.yml
+      v1: chat@v1.yml
