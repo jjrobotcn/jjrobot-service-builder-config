@@ -3,8 +3,11 @@ version: "3"
 services:
   chat:
     container_name: chat
-    image: registry.cn-shenzhen.aliyuncs.com/jj-robot/chat:1.0.0_dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/chat:1.0.0_dev4
     restart: always
+    depends_on:
+      - speech
+      - face-recognition
     volumes:
       - /etc/localtime:/etc/localtime:ro
     environment:
