@@ -7,8 +7,8 @@ services:
     restart: always
     privileged: true
     environment:
-      - MIC_NAME= bothlent
-      - LOG_LEVEL= debug
+      - MIC_NAME=bothlent
+      - LOG_LEVEL=debug
       - GODEBUG=netdns=cgo
       - module=aiuiv2
       - wifi_ssid=
