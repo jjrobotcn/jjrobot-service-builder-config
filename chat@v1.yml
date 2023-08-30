@@ -1,8 +1,11 @@
-chat:
-  container_name: chat
-  image: registry.cn-shenzhen.aliyuncs.com/jj-robot/chat:1.0.0_dev1
-  restart: always
-  volumes:
-    - /etc/localtime:/etc/localtime:ro
-  environment:
-    - LOG_LEVEL=debug
+version: "3"
+
+services:
+  chat:
+    container_name: chat
+    image: registry.cn-shenzhen.aliyuncs.com/jj-robot/chat:1.0.0_dev1
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - LOG_LEVEL=debug
