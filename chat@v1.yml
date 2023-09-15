@@ -3,7 +3,7 @@ version: "3"
 services:
   chat:
     container_name: chat
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/chat:1.0.0_dev6
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/chat:1.0.0_dev10
     restart: always
     depends_on:
       - speech
