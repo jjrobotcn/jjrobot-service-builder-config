@@ -8,6 +8,7 @@ services:
     privileged: true
     environment:
       - MIC_NAME=bothlent
+      - BAIDU_URL=ws://172.168.101.137:3000/api/v1/asr/stream
       - LOG_LEVEL=debug
       - GODEBUG=netdns=cgo
       - module=aiuiv2

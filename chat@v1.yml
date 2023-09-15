@@ -12,3 +12,5 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - LOG_LEVEL=debug
+      - NLP_URL=http://172.168.101.137:3000/api-robot/knowledge/conversation
+      - ASR_MAX_LEN=60
