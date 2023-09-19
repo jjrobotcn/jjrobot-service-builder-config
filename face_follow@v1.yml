@@ -3,7 +3,7 @@ version: "3"
 services:
   face_follow:
     container_name: face_follow
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face_follow:1.0.0_dev2
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face_follow:1.0.0_dev5
     restart: always
     depends_on:
       - face-recognition
@@ -14,4 +14,3 @@ services:
       - LOG_LEVEL=info
       - MOVE_SPEED= 30
       - Y_RATIO = 8
-      - Follow_Avr_Count = 3
