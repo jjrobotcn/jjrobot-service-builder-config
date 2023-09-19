@@ -3,7 +3,7 @@ version: "3"
 services:
   face_follow:
     container_name: face_follow
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face_follow:1.0.0_dev6
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face_follow:1.0.0_dev7
     restart: always
     depends_on:
       - face-recognition
