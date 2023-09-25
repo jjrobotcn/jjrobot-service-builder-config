@@ -2,13 +2,14 @@ version: "3"
 
 services:
   speech:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev9
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev10
     container_name: speech
     restart: always
     privileged: true
     environment:
       - MIC_NAME=bothlent
       - BAIDU_URL=ws://172.168.101.137:3000/api/v1/asr/stream
+      - NLP_URL=http://172.168.101.137:3000/api-robot/knowledge/conversation
       - LOG_LEVEL=debug
       - GODEBUG=netdns=cgo
       - module=aiuiv2

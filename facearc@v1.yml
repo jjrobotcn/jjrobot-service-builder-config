@@ -2,7 +2,7 @@ version: "3"
 
 services:
   face-recognition:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:1.2.7-arc-dev1
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/face-recognition:1.2.7-arc-108
     container_name: face-recognition
     restart: always
     depends_on:
