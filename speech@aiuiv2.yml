@@ -2,7 +2,7 @@ version: "3"
 
 services:
   speech:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev10
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev11
     container_name: speech
     restart: always
     privileged: true
@@ -11,6 +11,7 @@ services:
       - BAIDU_URL=ws://172.168.101.137:3000/api/v1/asr/stream
       - NLP_URL=http://172.168.101.137:3000/api-robot/knowledge/conversation
       - LOG_LEVEL=debug
+      - Product_Id=888
       - GODEBUG=netdns=cgo
       - module=aiuiv2
       - wifi_ssid=
