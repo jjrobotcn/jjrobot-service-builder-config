@@ -2,7 +2,7 @@ version: "3"
 
 services:
   speech:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev12
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:4.0.0_baidu_dev13
     container_name: speech
     restart: always
     privileged: true
