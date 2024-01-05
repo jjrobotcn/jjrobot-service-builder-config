@@ -13,20 +13,6 @@ services:
     module:
       default: camera@xm.yml
       xm: camera@xm.yml
-  expression:
-    module:
-      default: expression@v1.yml
-      v1: expression@v1.yml
-      v2: expression@v2.yml
-  lights:
-    module:
-      default: lights@v1.yml
-      v1: lights@v1.yml
-      v2: lights@v2.yml
-  motion:
-    module:
-      default: motion@v1.yml
-      v1: motion@v1.yml
   network:
     module:
       default: network@wifi360.yml
