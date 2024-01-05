@@ -26,10 +26,6 @@ services:
     module:
       default: sensor@v2.yml
       v2: sensor@v2.yml
-  speech:
-    module:
-      default: speech@aiuiv2.yml
-      aiuiv2: speech@aiuiv2.yml
   surveillance:
     module:
       default: surveillance@v1.yml
