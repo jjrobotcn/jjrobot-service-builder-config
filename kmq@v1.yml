@@ -10,7 +10,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
   kmqpd_pages:
     container_name: kmqpd_pages
-    image: registry.cn-shenzhen.aliyuncs.com/sacs/kmqpd_pages:1.0.0
+    image: registry.cn-shenzhen.aliyuncs.com/sacs/kmqpd_pages:1.0.1
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
