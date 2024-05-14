@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  kmq_zwxt:
+    container_name: kmq_zwxt
+    image: registry.cn-shenzhen.aliyuncs.com/sacs/kmq_zwxt:1.0.0
+    restart: always
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  kmqpd_pages:
+    container_name: kmqpd_pages
+    image: registry.cn-shenzhen.aliyuncs.com/sacs/kmqpd_pages:1.0.0
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  kmqzw_pages:
+    container_name: kmqzw_pages
+    image: registry.cn-shenzhen.aliyuncs.com/sacs/kmqzw_pages:1.0.0
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

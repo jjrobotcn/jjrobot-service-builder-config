@@ -198,5 +198,17 @@
     "app-admin-pages": {
       "name": "app-admin-pages",
       "label": "app管理界面"
+    },
+    "kmq_zwxt": {
+      "name": "kmq_zwxt",
+      "label": "政务服务"
+    },
+    "kmqpd_pages": {
+      "name": "kmqpd_pages",
+      "label": "排队叫号界面"
+    },
+    "kmqzw_pages": {
+      "name": "kmqzw_pages",
+      "label": "政务界面"
     }
 }

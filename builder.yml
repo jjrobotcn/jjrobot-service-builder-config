@@ -68,3 +68,7 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  kmq:
+    module:
+      default: kmq@v1.yml
+      v1: kmq@v1.yml
