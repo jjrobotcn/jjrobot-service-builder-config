@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nav:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:1.0.6_sl
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/nav:1.0.7_sl
     container_name: nav
     restart: always
     environment:
