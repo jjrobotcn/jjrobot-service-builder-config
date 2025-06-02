@@ -68,3 +68,7 @@ services:
     module:
       default: handsmotion@v1.yml
       v1: handsmotion@v1.yml
+  face_follow:
+    module:
+      default: face_follow@v1.yml
+      v1: face_follow@v1.yml
