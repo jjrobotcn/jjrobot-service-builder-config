@@ -198,5 +198,9 @@
     "app-admin-pages": {
       "name": "app-admin-pages",
       "label": "app管理界面"
+    },
+    "face_follow": {
+      "name": "face_follow",
+      "label": "人脸跟随"
     }
 }
