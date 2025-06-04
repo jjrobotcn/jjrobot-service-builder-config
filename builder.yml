@@ -72,3 +72,7 @@ services:
     module:
       default: face_follow@v1.yml
       v1: face_follow@v1.yml
+  opentts:
+    module:
+      default: tts@open.yml
+      v1: tts@open.yml

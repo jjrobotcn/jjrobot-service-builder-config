@@ -19,4 +19,4 @@ services:
     privileged: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyArm:/dev/ttyHWDevice
+      - /dev/ttySpeech:/dev/ttyHWDevice

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  opentts:
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/opentts:zh
+    container_name: opentts
+    restart: always
+    ports:
+      - "5500:5500"

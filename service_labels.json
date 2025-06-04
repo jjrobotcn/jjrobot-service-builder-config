@@ -202,5 +202,9 @@
     "face_follow": {
       "name": "face_follow",
       "label": "人脸跟随"
+    },
+    "opentts": {
+      "name": "opentts",
+      "label": "语音合成"
     }
 }

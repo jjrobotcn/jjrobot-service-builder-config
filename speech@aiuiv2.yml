@@ -2,10 +2,11 @@ version: "3"
 
 services:
   speech:
-    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/speech:3.0.3
+    image: registry.cn-shenzhen.aliyuncs.com/jjrobot/kaldi:cn
     container_name: speech
     restart: always
-    privileged: true
+    ports:
+      - "2700:2700"
     environment:
       - GODEBUG=netdns=cgo
       - module=aiuiv2
@@ -13,4 +14,3 @@ services:
       - wifi_pwd=
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttySpeech:/dev/ttyAiuiV2
